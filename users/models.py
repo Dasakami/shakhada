@@ -69,3 +69,13 @@ class Review(models.Model):
         ordering = ['-created_at']
 
 
+
+class MaintenanceStatus(models.Model):
+    is_active = models.BooleanField(default=False)
+
+    def __str__(self):
+        return "Технические работы включены" if self.is_active else "Технические работы выключены"
+
+    class Meta:
+        verbose_name = "Техническое обслуживание"
+        verbose_name_plural = "Техническое обслуживание"
