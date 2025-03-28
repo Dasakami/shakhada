@@ -27,7 +27,6 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticCloudinaryStorage'
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'shakhada.onrender.com', '*']
-ALLOWED_HOSTS = []
 
 
 # Application definition
