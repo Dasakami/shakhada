@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Заявки от клиентов</h2>
+    <a href="{% url 'request:create_client_request' %}">Создать заявку</a>
+
+
+    <form method="GET">
+        <input type="text" name="search" value="{{ search_query }}" placeholder="Поиск заявок...">
+        <button type="submit">🔍</button>
+    </form>
+
+    
+    <form method="GET">
+        <label for="sort_by">Сортировать по:</label>
+        <select name="sort_by" onchange="this.form.submit()">
+            <option value="newest">Новые</option>
+            <option value="oldest">Старые</option>
+            <option value="rating">Рейтинг автора</option>
+        </select>
+    </form>
+
+    {% for request_obj in requests %}
+        <div>
+            <h3><a href="{% url 'request:client_request_detail' request_obj.id %}">{{ request_obj.title }}</a></h3>
+            <p>Автор: {{ request_obj.author.username }} (Рейтинг: {{ request_obj.get_author_rating }})</p>
+            <p>Описание: {{ request_obj.description|truncatechars:100 }}</p>
+            {% if request_obj.image %}
+                <img src="{{ request_obj.image.url }}" alt="Изображение заявки" width="200">
+            {% endif %}
+        </div>
+    {% empty %}
+        <p>Заявок пока нет.</p>
+    {% endfor %}
+{% endblock %}

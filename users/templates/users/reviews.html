@@ -1,0 +1,104 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- Отзывы -->
+    <h3>Отзывы</h3>
+    <div class="reviews-list">
+        {% for review in reviews %}
+            <div class="review">
+                <p><strong>{{ review.reviewer.username }}:</strong> {{ review.comment }}</p>
+                <p>Оценка: {{ review.rating }} / 5</p>
+            </div>
+        {% empty %}
+            <p>Нет отзывов</p>
+        {% endfor %}
+    </div>
+
+    <!-- Форма для оставления отзыва -->
+    <h3>Оставить отзыв:</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <button type="submit">Отправить отзыв</button>
+    </form>
+</div>
+
+<style>
+    /* Общие стили */
+
+/* Контейнер отзывов */
+.reviews-list {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.review {
+    background: #fafafa;
+    padding: 15px;
+    border-left: 4px solid #ff9800;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.review strong {
+    color: #333;
+    font-size: 16px;
+}
+
+.review p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Заголовки */
+h3 {
+    text-align: center;
+    color: #444;
+}
+
+/* Форма добавления отзыва */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+form p {
+    margin-bottom: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background: #ff9800;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e68900;
+}
+
+</style>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'vendor/css/send_feedback.css' %}">
+{% endblock %}
+{% block content %}
+<section class="ezy__contact1_kTjMvobC">
+	<div class="container position-relative">
+		<div class="row py-5 align-items-center">
+			<div class="col-lg-6 mb-3 mb-lg-0">
+				<img src="https://cdn.easyfrontend.com/pictures/contact/contact_1.png" alt=""
+					class="img-fluid ezy__contact1_kTjMvobC-banner mx-auto" />
+			</div>
+			<div class="col-lg-6 position-relative">
+				<div class="ezy__contact1_kTjMvobC-shape"></div>
+				<div class="row position-relative">
+					<div class="col-md-10 mx-auto">
+						<div class="ezy__contact1_kTjMvobC-content rounded text-white my-5 py-4">
+							<h2 class="ezy__contact1_kTjMvobC-heading mb-3 mt-0">Обратная связь</h2>
+							<form method="post" class="pe-md-4">
+								{% csrf_token %}
+								{{ form.as_p }}
+								<div class="text-end">
+									<button type="submit" class="btn ezy__contact1_kTjMvobC-btn mb-3">Отправить</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

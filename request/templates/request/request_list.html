@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Заявки</h2>
+
+    <form method="GET">
+        <label>Фильтр:</label>
+        <select name="sort_by">
+            <option value="rating">По рейтингу (по умолчанию)</option>
+            <option value="newest">Сначала новые</option>
+            <option value="oldest">Сначала старые</option>
+        </select>
+        <button type="submit">Фильтровать</button>
+    </form>
+
+    {% for request in requests %}
+        <div class="request">
+            <h3>{{ request.title }}</h3>
+            <p>{{ request.description }}</p>
+            <p>Автор: {{ request.author.username }} (Рейтинг: {{ request.get_author_rating }})</p>
+            <a href="{% url 'request:request_detail' request.id %}">Подробнее</a>
+        </div>
+    {% empty %}
+        <p>Нет заявок</p>
+    {% endfor %}
+    <a href="{% url 'request:create_request' %}">Создать</a>
+
+    <style>
+        /* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Стиль заголовка страницы */
+h2 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Стили для фильтров */
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Карточки заявок */
+.request {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.request h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.request p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.request a {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.request a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для кнопки создания заявки */
+a[href="{% url 'request:create_request' %}"] {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+a[href="{% url 'request:create_request' %}"]:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для пустого состояния */
+.empty {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #888;
+}
+
+    </style>
+{% endblock %}

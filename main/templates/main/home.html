@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'vendor/css/home-white.css' %}">
+{% endblock %}
+{% block title %} Shakhada {% endblock %}
+{% block content %}
+<section class="ezy__header29_78nRsOmo" style="background-image: url(https://cdn.easyfrontend.com/pictures/hero/hero_30.png)">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-12 col-lg-9">
+          <h1 class="ezy__header29_78nRsOmo-heading">We're offering Some useful Course Materials</h1>
+          <p class="ezy__header29_78nRsOmo-sub-heading px-5 py-4">
+            Vitae bibendum egestas magna sit elit non. Netus volutpat dignissim pharetra felis. Orci commodo mauris
+            adipiscing semper amet.
+          </p>
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+              <form class="px-5" action="{% url 'request:request_list' %}" method="GET">
+                <div class="form-group mb-0">
+                  <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Поиск заявок..." value="{{ query }}" >
+                    <button class="btn ezy__header29_78nRsOmo-btn" type="submit"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </form>										
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ezy__numbers5_1rgnoBq5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12 col-sm-6 col-lg-3 mb-5 mb-lg-0">
+          <h3 class="mb-3 mb-md-4">754</h3>
+          <h5 class="mb-0">Completed Event</h5>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 mb-5 mb-lg-0">
+          <h3 class="mb-3 mb-md-4">19k</h3>
+          <h5 class="mb-0">Game Completed</h5>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 mb-5 mb-lg-0">
+          <h3 class="mb-3 mb-md-4">53</h3>
+          <h5 class="mb-0">Completed Fund</h5>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 mb-5 mb-lg-0">
+          <h3 class="mb-3 mb-md-4">111</h3>
+          <h5 class="mb-0">Completed Ticket</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="ezy__team12_MxU7Pf3b">
+    <div class="container">
+      <div class="row ezy__team12_MxU7Pf3b-separator text-center">
+        <!-- Start: Section Heading -->
+        <div class="">
+          <h3 class="ezy__team12_MxU7Pf3b-heading">Our Team</h3>
+          <p class="ezy__team12_MxU7Pf3b-sub-heading mt-3 mb-5">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+        </div>
+        <!-- End: Section Heading -->
+  
+        <div class="row">
+          <div class="ezy__team12_MxU7Pf3b-each-features col-12 col-lg-4">
+            <div class="ezy__team12_MxU7Pf3b-features-inner position-relative">
+              <img
+                src="https://cdn.easyfrontend.com/pictures/team/team_13_1.jpg"
+                alt="Our Team Member Image"
+                class="img-fluid w-100"
+              />
+              <div class="ezy__team12_MxU7Pf3b-features-content text-center">
+                <h3 class="ezy__team12_MxU7Pf3b-title mb-1">KHAN SAHEB</h3>
+                <p class="ezy__team12_MxU7Pf3b-sub-title">HR, LATO</p>
+  
+                <div class="ezy__team12_MxU7Pf3b-social-icon-area mt-1">
+                  <ul class="nav ezy__team12_MxU7Pf3b-social-icon d-flex justify-content-center align-items-center">
+                    <li>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fab fa-vimeo"></i></a>
+                    </li>
+                  </ul>
+                  <!-- End: .social-icon -->
+                </div>
+              </div>
+            </div>
+            <!-- End: .features-inner -->
+          </div>
+          <!-- End: .each-features -->
+  
+          <div class="ezy__team12_MxU7Pf3b-each-features col-12 col-lg-4">
+            <div class="ezy__team12_MxU7Pf3b-features-inner position-relative">
+              <img
+                src="https://cdn.easyfrontend.com/pictures/team/team_13_2.jpg"
+                alt="Our Team Member Image"
+                class="img-fluid w-100"
+              />
+              <div class="ezy__team12_MxU7Pf3b-features-content text-center">
+                <h3 class="ezy__team12_MxU7Pf3b-title mb-1">Ali Akbar</h3>
+                <p class="ezy__team12_MxU7Pf3b-sub-title">HR, PIT</p>
+  
+                <div class="ezy__team12_MxU7Pf3b-social-icon-area mt-1">
+                  <ul class="nav ezy__team12_MxU7Pf3b-social-icon d-flex justify-content-center align-items-center">
+                    <li>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fab fa-vimeo"></i></a>
+                    </li>
+                  </ul>
+                  <!-- End: .social-icon -->
+                </div>
+              </div>
+            </div>
+            <!-- End: .features-inner -->
+          </div>
+          <!-- End: .each-features -->
+  
+          <div class="ezy__team12_MxU7Pf3b-each-features col-12 col-lg-4">
+            <div class="ezy__team12_MxU7Pf3b-features-inner position-relative">
+              <img
+                src="https://cdn.easyfrontend.com/pictures/team/team_13_3.jpg"
+                alt="Our Team Member Image"
+                class="img-fluid w-100"
+              />
+              <div class="ezy__team12_MxU7Pf3b-features-content text-center">
+                <h3 class="ezy__team12_MxU7Pf3b-title mb-1">Sadab Bean</h3>
+                <p class="ezy__team12_MxU7Pf3b-sub-title">HR, INCA</p>
+  
+                <div class="ezy__team12_MxU7Pf3b-social-icon-area mt-1">
+                  <ul class="nav ezy__team12_MxU7Pf3b-social-icon d-flex justify-content-center align-items-center">
+                    <li>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fab fa-vimeo"></i></a>
+                    </li>
+                  </ul>
+                  <!-- End: .social-icon -->
+                </div>
+              </div>
+            </div>
+            <!-- End: .features-inner -->
+          </div>
+          <!-- End: .each-features -->
+        </div>
+        <!-- End: .row -->
+      </div>
+      <!-- End: .row -->
+    </div>
+    <!-- End:.container -->
+  </section>
+
+
+  <section class="ezy__faq9_Kb3hGEJe">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mb-5">
+          <h2 class="ezy__faq9_Kb3hGEJe-heading mb-4">Frequently Asked Questions</h2>
+          <p class="ezy__faq9_Kb3hGEJe-sub-heading mb-0">
+            Assumenda non repellendus distinctio nihil dicta sapiente, quibusdam maiores, illum at, aliquid blanditiis
+            eligendi qui.Assumenda non repellendus distinctio nihil dicta sapiente, quibusdam maiores
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <div class="ezy__faq10_Kb3hGEJe-bg-holder h-100"
+            style="background-image: url(https://cdn.easyfrontend.com/pictures/sign-in-up/sign-in-up-2.png)"></div>
+        </div>
+        <div class="col-md-8 ps-lg-5">
+          <div class="ezy__faq9_Kb3hGEJe-item">
+            <h5
+              class="p-3 p-lg-4 mb-0 w-100 text-start d-flex justify-content-between align-items-center ezy__faq9_Kb3hGEJe-btn-collapse">
+              <span>What is Easy Frontend?</span>
+            </h5>
+            <div class="ezy__faq9_Kb3hGEJe-content px-3 px-lg-4 pb-lg-4">
+              <p class="opacity-50 mb-0">
+                When it comes to booking a holiday, we know everyone likes something different - so we've designed our
+                getaways with you in mind.
+              </p>
+            </div>
+          </div>
+          <div class="ezy__faq9_Kb3hGEJe-item">
+            <h5
+              class="p-3 p-lg-4 mb-0 w-100 text-start d-flex justify-content-between align-items-center ezy__faq9_Kb3hGEJe-btn-collapse">
+              <span>Who is Easy Frontend for?</span>
+            </h5>
+            <div class="ezy__faq9_Kb3hGEJe-content px-3 px-lg-4 pb-lg-4">
+              <p class="opacity-50 mb-0">
+                When it comes to booking a holiday, we know everyone likes something different - so we've designed our
+                getaways with you in mind.
+              </p>
+            </div>
+          </div>
+          <div class="ezy__faq9_Kb3hGEJe-item">
+            <h5
+              class="p-3 p-lg-4 mb-0 w-100 text-start d-flex justify-content-between align-items-center ezy__faq9_Kb3hGEJe-btn-collapse">
+              <span>How does Easy Frontend work?</span>
+            </h5>
+            <div class="ezy__faq9_Kb3hGEJe-content px-3 px-lg-4 pb-lg-4">
+              <p class="opacity-50 mb-0">
+                When it comes to booking a holiday, we know everyone likes something different - so we've designed our
+                getaways with you in mind.
+              </p>
+            </div>
+          </div>
+          <div class="ezy__faq9_Kb3hGEJe-item">
+            <h5
+              class="p-3 p-lg-4 mb-0 w-100 text-start d-flex justify-content-between align-items-center ezy__faq9_Kb3hGEJe-btn-collapse">
+              <span>Who is Easy Frontend for?</span>
+            </h5>
+            <div class="ezy__faq9_Kb3hGEJe-content px-3 px-lg-4 pb-lg-4">
+              <p class="opacity-50 mb-0">
+                When it comes to booking a holiday, we know everyone likes something different - so we've designed our
+                getaways with you in mind.
+              </p>
+            </div>
+          </div>
+          <div class="ezy__faq9_Kb3hGEJe-item">
+            <h5
+              class="p-3 p-lg-4 mb-0 w-100 text-start d-flex justify-content-between align-items-center ezy__faq9_Kb3hGEJe-btn-collapse">
+              <span>How does Easy Frontend work?</span>
+            </h5>
+            <div class="ezy__faq9_Kb3hGEJe-content px-3 px-lg-4 pb-lg-4">
+              <p class="opacity-50 mb-0">
+                When it comes to booking a holiday, we know everyone likes something different - so we've designed our
+                getaways with you in mind.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}

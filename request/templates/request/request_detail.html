@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ request_obj.title }}</h2>
+    <p>Автор: {{ request_obj.author.username }} (Рейтинг:{{ author_rating }} )</p>
+    <p>{{ request_obj.description }}</p>
+
+    {% if request_obj.contact_info %}
+    <h3>Контактная информация:</h3>
+    <p>{{ request_obj.contact_info }}</p>
+{% else %}
+    <p>Контактная информация не предоставлена</p>
+{% endif %}
+
+    {% if request_obj.image %}
+        <img src="{{ request_obj.image.url }}" alt="Изображение">
+    {% endif %}
+
+    {% if user == request_obj.author %}
+        <a href="{% url 'request:edit_request' request_obj.id %}">Редактировать</a>
+        <a href="{% url 'request:delete_request' request_obj.id %}">Удалить</a>
+    {% endif %}
+
+    <h3>Комментарии</h3>
+    {% for comment in comments %}
+        <p><strong>{{ comment.author.username }}</strong>: {{ comment.text }}</p>
+    {% empty %}
+        <p>Комментариев пока нет</p>
+    {% endfor %}
+
+    <h3>Добавить комментарий</h3>
+    <form method="POST" action="{% url 'request:add_comment' request_obj.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
+{% endblock %}

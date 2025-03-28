@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ request_obj.title }}</h2>
+    <p>Автор: {{ request_obj.author.username }} (Рейтинг: {{ request_obj.get_author_rating }})</p>
+    <p>Описание: {{ request_obj.description }}</p>
+
+    {% if request_obj.image %}
+        <img src="{{ request_obj.image.url }}" alt="Изображение заявки" width="400">
+    {% endif %}
+
+    {% if user == request_obj.author %}
+                <a href="{% url 'request:edit_client_request' request_obj.id %}">Редактировать</a>
+                <a href="{% url 'request:delete_client_request' request_obj.id %}">Удалить</a>
+            {% endif %}
+{% endblock %}
