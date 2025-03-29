@@ -9,7 +9,7 @@ urlpatterns = [
     path('', views.home, name='home' ),
     path('work/', views.work, name='work' ),
     path('how_it_works/', views.how_it_works, name='how_it_works' ),
-    path('yandex_869484d46e729989.html/', views.yandex_869484d46e729989, name='yandex_869484d46e729989.html' ),
+    path('yandex_20c50dbebd35d885.html', views.yandex, name='yandex_20c50dbebd35d885.html' ),
     path('users/', include('users.urls', namespace='users')),
     path('request/', include('request.urls', namespace='request'))
 ]

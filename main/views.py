@@ -11,6 +11,6 @@ def how_it_works(request):
     return render(request, 'main/how_it_works.html')
 
 
-def yandex_869484d46e729989(request):
-    return render(request, 'main/yandex_869484d46e729989.html')
+def yandex(request):
+    return render(request, 'main/yandex_20c50dbebd35d885.html')
 # Create your views here.
