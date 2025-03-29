@@ -16,5 +16,6 @@ urlpatterns = [
     
     path('send-feedback/', views.send_feedback, name='send_feedback'),
     path('feedback-success/', views.feedback_success, name='feedback_success'),
-        path('maintenance/', views.maintenance_view, name='maintenance'),
+    path('maintenance/', views.maintenance_view, name='maintenance'),
+    path('toggle-maintenance/', views.toggle_maintenance, name='toggle_maintenance'),
 ]

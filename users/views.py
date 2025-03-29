@@ -5,9 +5,10 @@ from django.contrib.auth import login
 from .forms import CustomUserCreationForm, UserLoginForm, FeedbackForm
 from django.urls import reverse
 from .models import User, Review
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import ProfileUpdateForm, WorkForm, ReviewForm
-from .models import Work
+from .models import Work, MaintenanceStatus
+
 
 def register(request):
     if request.method == "POST":
@@ -135,3 +136,12 @@ def feedback_success(request):
 
 def maintenance_view(request):
     return render(request, 'users/maintenance.html')
+
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def toggle_maintenance(request):
+    status, created = MaintenanceStatus.objects.get_or_create(id=1)
+    status.is_active = not status.is_active
+    status.save()
+    return redirect('users:profile')  # замените на имя вашего профиля
