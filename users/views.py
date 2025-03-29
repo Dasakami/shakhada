@@ -2,21 +2,25 @@
 from django.shortcuts import render, HttpResponsePermanentRedirect, redirect, get_object_or_404
 from django.contrib import auth
 from django.contrib.auth import login
-from .forms import CustomUserCreationForm, UserLoginForm, FeedbackForm
+from .forms import CustomUserCreationForm, UserLoginForm, FeedbackForm, UserEmailChangeForm, UserUsernameChangeForm
 from django.urls import reverse
 from .models import User, Review
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .forms import ProfileUpdateForm, WorkForm, ReviewForm
+from .forms import  WorkForm, ReviewForm, UserProfileForm
 from .models import Work, MaintenanceStatus
-
+from django.contrib.auth import update_session_auth_hash 
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from .forms import CustomUserCreationForm
 
 def register(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            return redirect('home')  # поменяй на свою главную страницу
+            login(request, user)  # Вызов с request
+            return redirect('home')  # Замени на свою главную страницу
     else:
         form = CustomUserCreationForm()
     return render(request, 'users/register.html', {'form': form})
@@ -44,17 +48,52 @@ def logout(request):
     return HttpResponsePermanentRedirect(reverse('home'))
 
 
+
 @login_required
-def edit_profile(request, username):
-    if request.method == "POST":
-        form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
+def setting(request, username):
+    user = request.user  # просто текущий пользователь
+
+    if request.method == 'POST':
+        form = UserProfileForm(instance=user, data=request.POST, files=request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('users:profile', username=request.user.username)  # Убедись, что передаёшь username
+            # Сохраняем профиль пользователя
+            user_profile = form.save(commit=False)
+
+            # Обработка смены пароля
+            old_pass = request.POST.get('old_pass')
+            new_pass = request.POST.get('new_pass')
+            confirm_pass = request.POST.get('confirm_new_pass')
+
+            if old_pass and new_pass and confirm_pass:
+                if new_pass == confirm_pass:
+                    if user.check_password(old_pass):
+                        user.set_password(new_pass)
+                        user.save()
+                        update_session_auth_hash(request, user)  # чтобы не выкинуло из аккаунта
+                        messages.success(request, 'Пароль успешно обновлён!')
+                    else:
+                        messages.error(request, 'Неверный старый пароль.')
+                else:
+                    messages.error(request, 'Новый пароль и подтверждение не совпадают.')
+
+            # Обновление роли пользователя
+            role = request.POST.get('role')
+            if role and role != user_profile.role:
+                user_profile.role = role
+
+            user_profile.save()  # сохраняем изменения
+
+            messages.success(request, 'Профиль успешно обновлён!')
+            return redirect('users:profile', username=request.user.username)
+        else:
+            print("Form errors:", form.errors)
     else:
-        form = ProfileUpdateForm(instance=request.user)
-    
-    return render(request, 'users/edit_profile.html', {'form': form})
+        form = UserProfileForm(instance=user)
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'users/setting.html', context)
 
 
 @login_required
@@ -145,3 +184,35 @@ def toggle_maintenance(request):
     status.is_active = not status.is_active
     status.save()
     return redirect('users:profile')  # замените на имя вашего профиля
+
+
+@login_required
+def change_email(request):
+    if request.method == 'POST':
+        form = UserEmailChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('users:profile')  # или куда тебе нужно
+    else:
+        form = UserEmailChangeForm(instance=request.user)
+
+    return render(request, 'users/change_email.html', {'form': form})
+
+
+@login_required
+def change_username(request):
+    if request.method == 'POST':
+        form = UserUsernameChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('users:profile')  # или другой путь
+    else:
+        form = UserUsernameChangeForm(instance=request.user)
+
+    return render(request, 'users/change_username.html', {'form': form})
+
+
+
+
+def register_done(request):
+    return render(request, 'users/register_done.html')

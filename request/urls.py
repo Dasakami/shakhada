@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import request_list, request_detail, create_request, edit_request, delete_request, add_comment, client_request_detail, client_request_list, create_client_request, \
-    edit_client_request, delete_client_request
+    edit_client_request, delete_client_request, edit_comment, delete_comment
 
 app_name = 'request'
 
@@ -16,4 +16,6 @@ urlpatterns = [
     path("client-requests/create/", create_client_request, name="create_client_request"),
         path("requests/<int:request_id>/edit/", edit_client_request, name="edit_client_request"),  # Редактирование
     path("requests/<int:request_id>/delete/", delete_client_request, name="delete_client_request"),
+    path("comment/<int:comment_id>/edit/", edit_comment, name="edit_comment"),
+    path("comment/<int:comment_id>/delete/", delete_comment, name="delete_comment"),
 ]

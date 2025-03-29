@@ -155,6 +155,42 @@
 	border-color: rgba(var(--ezy-theme-color-rgb), .9);
 }
 
+#help-container {
+  position: absolute;
+  top: 40px; /* Отступ вниз от кнопки */
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.hidden {
+  display: none;
+}
+
+#help-button {
+  cursor: pointer;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#help-container button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border: none;
+  background: #f1f1f1;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 
 
 /* footer  */

@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import User, Review, Feedback
 from django.contrib.auth.forms import (AuthenticationForm,
-                                       UserCreationForm)
+                                       UserCreationForm, UserChangeForm)
 
 class CustomUserCreationForm(UserCreationForm):
     role = forms.ChoiceField(choices=User.ROLE_CHOICES, widget=forms.RadioSelect)
@@ -43,11 +43,6 @@ class WorkForm(forms.ModelForm):
 
         return cleaned_data
 
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ['image', 'banner', 'about']
-
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
@@ -61,3 +56,37 @@ class FeedbackForm(forms.ModelForm):
             'feedback_type': forms.Select(attrs={'class': 'form-control'}),
             'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Введите ваше сообщение'}),
         }
+
+class UserProfileForm(UserChangeForm):
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
+    image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'custom-file-input'}), required=False)
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4', 'readonly': True}))
+    email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4', 'readonly': True}))
+    banner = forms.ImageField(widget=forms.FileInput(attrs={'class': 'custom-file-input'}), required=False)
+    about = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 4}), required=False)
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'image', 'username', 'email', 'image', 'banner', 'about')
+
+
+class UserEmailChangeForm(forms.ModelForm):
+    email = forms.EmailField(widget=forms.EmailInput(attrs={
+        'class': 'form-control py-4',
+        'placeholder': 'Введите новый email'
+    }))
+
+    class Meta:
+        model = User
+        fields = ['email']
+
+class UserUsernameChangeForm(forms.ModelForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control py-4',
+        'placeholder': 'Введите новый username'
+    }))
+
+    class Meta:
+        model = User
+        fields = ['username']

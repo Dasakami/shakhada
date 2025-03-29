@@ -1,0 +1,13 @@
+<!-- templates/users/change_username.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2>Смена Username</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+  </div>
+{% endblock %}

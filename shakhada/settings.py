@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'users',
     'request',
     'cloudinary',
+    'notifications',
     'cloudinary_storage',
     'social_django',
     'django.contrib.admin',

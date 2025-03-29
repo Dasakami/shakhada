@@ -6,6 +6,7 @@ from users.models import Review
 from django.db.models import Q, Avg
 from .models import ClientRequest
 from .forms import ClientRequestForm
+from notifications.models import Notification
 
 
 
@@ -91,11 +92,44 @@ def add_comment(request, request_id):
             comment.author = request.user
             comment.request = request_obj
             comment.save()
+
+            # Создаём уведомление для автора заявки
+            Notification.objects.create(
+                recipient=request_obj.author, 
+                sender=request.user,
+                message=f"{request.user.username} оставил комментарий к вашей заявке."
+            )
             return redirect("request:request_detail", request_id=request_id)
     else:
         form = CommentForm()
 
     return render(request, "request/add_comment.html", {"form": form, "request_obj": request_obj})
+
+@login_required
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+    
+    if request.method == "POST":
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            return redirect("request:request_detail", request_id=comment.request.id)
+    else:
+        form = CommentForm(instance=comment)
+
+    return render(request, "request/edit_comment.html", {"form": form, "comment": comment})
+
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+
+    if request.method == "POST":
+        request_id = comment.request.id
+        comment.delete()
+        return redirect("request:request_detail", request_id=request_id)
+
+    return render(request, "request/delete_comment.html", {"comment": comment})
+
 
 @login_required
 def delete_request(request, request_id):

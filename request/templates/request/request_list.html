@@ -17,6 +17,9 @@
         <div class="request">
             <h3>{{ request.title }}</h3>
             <p>{{ request.description }}</p>
+            {% if request.author.image %}
+                <a href="{% url 'users:profile' request.author.username %}"> <img src="{{ request.author.image.url }}" alt=""></a>
+            {% endif %}
             <p>Автор: {{ request.author.username }} (Рейтинг: {{ request.get_author_rating }})</p>
             <a href="{% url 'request:request_detail' request.id %}">Подробнее</a>
         </div>

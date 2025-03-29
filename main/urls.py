@@ -11,5 +11,6 @@ urlpatterns = [
     path('how_it_works/', views.how_it_works, name='how_it_works' ),
     path('yandex_20c50dbebd35d885.html', views.yandex, name='yandex_20c50dbebd35d885.html' ),
     path('users/', include('users.urls', namespace='users')),
-    path('request/', include('request.urls', namespace='request'))
+    path('request/', include('request.urls', namespace='request')),
+    path('notifications/', include('notifications.urls', namespace='notifications'))
 ]

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <h2>{{ request_obj.title }}</h2>
     <p>Автор: {{ request_obj.author.username }} (Рейтинг:{{ author_rating }} )</p>
@@ -23,10 +23,28 @@
 
     <h3>Комментарии</h3>
     {% for comment in comments %}
-        <p><strong>{{ comment.author.username }}</strong>: {{ comment.text }}</p>
-    {% empty %}
-        <p>Комментариев пока нет</p>
-    {% endfor %}
+    <div class="comment">
+        {% if comment.author.image %}
+            <img src="{{ comment.author.image.url }}" alt="Avatar" class="avatar">
+        {% else %}
+        <img src="{% static 'vendor/img/Recon.png' %}" alt="Default Avatar" class="avatar">
+        {% endif %}
+        <a href="{% url 'users:profile' comment.author.username %}">{{ comment.author.username }}</a>
+        <p>{{ comment.text }}</p>
+        <p><small>{{ comment.created_at }}</small></p>
+
+        {% if comment.author == request.user %}
+            <a href="{% url 'request:edit_comment' comment.id %}">Редактировать</a>
+            <form action="{% url 'request:delete_comment' comment.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Удалить</button>
+            </form>
+        {% endif %}
+    </div>
+{% endfor %}
+
+
+
 
     <h3>Добавить комментарий</h3>
     <form method="POST" action="{% url 'request:add_comment' request_obj.id %}">

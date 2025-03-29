@@ -1,0 +1,11 @@
+<h2>Уведомления</h2>
+<ul>
+    {% for notification in notifications %}
+        <li {% if not notification.is_read %}style="font-weight: bold;"{% endif %}>
+            {{ notification.message }} - {{ notification.created_at|date:"d.m.Y H:i" }}
+            <a href="{% url 'notifications:mark_as_read' notification.id %}">Отметить как прочитанное</a>
+        </li>
+    {% empty %}
+        <li>Нет уведомлений</li>
+    {% endfor %}
+</ul>
