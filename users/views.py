@@ -26,7 +26,7 @@ def register(request):
     return render(request, 'users/register.html', {'form': form})
 
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
@@ -38,9 +38,8 @@ def login(request):
                 return HttpResponsePermanentRedirect('/')
     else:
         form = UserLoginForm()
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'users/login.html', context)
-
 
 
 def logout(request):
