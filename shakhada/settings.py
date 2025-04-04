@@ -117,10 +117,10 @@ LOGGING = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dsk_english',  # Имя базы данных (Render)
+        'NAME': 'shakhada',  # Имя базы данных (Render)
         'USER': 'dasakami',  # Имя пользователя (Render)
-        'PASSWORD': 'VuZ9D6zn0FdOK3JQk9djhAVPh7fcscbH',  # Пароль (Render)
-        'HOST': 'dpg-cvb917fnoe9s73filha0-a',  # Хост (Render)
+        'PASSWORD': 'Zf4MuPx1MnU7ZlRUpx3rCsTRHmo71wcJ',  # Пароль (Render)
+        'HOST': 'dpg-cvnusqi4d50c7399m7k0-a',  # Хост (Render)
         'PORT': '5432',  # Порт (Render)
     }
 }
