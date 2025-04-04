@@ -1,0 +1,74 @@
+/* Основной контейнер для всего FAQ */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Заголовок FAQ */
+.faq-container h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Стиль для каждого элемента FAQ (вопрос-ответ) */
+.faq-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Вопрос */
+.faq-item .faq-question {
+    font-size: 20px;
+    color: #007BFF;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Ответ */
+.faq-item .faq-answer {
+    font-size: 16px;
+    color: #555;
+    display: none; /* Ответ скрыт по умолчанию */
+    padding-left: 20px;
+}
+
+/* Показать ответ при наведении или клике */
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* Эффект при наведении на вопрос */
+.faq-item:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Активный стиль для вопроса */
+.faq-item.active .faq-question {
+    color: #0056b3;
+}
+
+/* Мобильная версия - адаптивность */
+@media (max-width: 768px) {
+    .faq-container {
+        padding: 10px;
+    }
+    .faq-container h1 {
+        font-size: 28px;
+    }
+    .faq-item .faq-question {
+        font-size: 18px;
+    }
+    .faq-item .faq-answer {
+        font-size: 14px;
+    }
+}

@@ -1,144 +1,163 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Заявки</h2>
 
-    <form method="GET">
-        <label>Фильтр:</label>
-        <select name="sort_by">
-            <option value="rating">По рейтингу (по умолчанию)</option>
-            <option value="newest">Сначала новые</option>
-            <option value="oldest">Сначала старые</option>
-        </select>
-        <button type="submit">Фильтровать</button>
-    </form>
+    <div class="header-category">
+        <form method="GET" class="filter-form">
+            <label>Фильтр:</label>
+            <select name="sort_by">
+                <option value="rating">По рейтингу (по умолчанию)</option>
+                <option value="newest">Сначала новые</option>
+                <option value="oldest">Сначала старые</option>
+            </select>
+            <div class="button-request-list">
+                <button type="submit">Фильтровать</button>
+            <a href="{% url 'request:create_request' %}" id="create_request" >Создать</a>
+            </div>
+        </form>
+    </div>
 
     {% for request in requests %}
-        <div class="request">
-            <h3>{{ request.title }}</h3>
-            <p>{{ request.description }}</p>
-            {% if request.author.image %}
-                <a href="{% url 'users:profile' request.author.username %}"> <img src="{{ request.author.image.url }}" alt=""></a>
-            {% endif %}
-            <p>Автор: {{ request.author.username }} (Рейтинг: {{ request.get_author_rating }})</p>
-            <a href="{% url 'request:request_detail' request.id %}">Подробнее</a>
-        </div>
-    {% empty %}
-        <p>Нет заявок</p>
-    {% endfor %}
-    <a href="{% url 'request:create_request' %}">Создать</a>
+    <div class="request-card">
+        {% if request.author.image %}
+            <a href="{% url 'users:profile' request.author.username %}">
+                <img src="{{ request.author.image.url }}" alt="" class="author-image">
+            </a>
+        {% endif %}
+        <div class="request-header">{{ request.title }}</div>
+        <p class="request-description">{{ request.description }}</p>
+        <button class="favorite-add" data-id="{{ request.id }}">Добавить в избранное</button>
+        <button class="favorite-remove" data-id="{{ request.id }}">Удалить из избранного</button>
+        <p class="request-author">Автор: {{ request.author.username }} (Рейтинг: {{ request.get_author_rating }})</p>
+        <a href="{% url 'request:request_detail' request.id %}" class="request-button">Откликнуться</a>
+    </div>
+{% empty %}
+    <p>Нет заявок</p>
+{% endfor %}
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.favorite-add').forEach(button => {
+            button.addEventListener('click', function() {
+                let requestId = this.dataset.id;
+                fetch(`/request/add_to_favorites/${requestId}/`, {
+                    method: 'GET',
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'added') {
+                        alert('Добавлено в избранное!');
+                    }
+                })
+                .catch(error => console.error('Ошибка:', error));
+            });
+        });
+    
+        document.querySelectorAll('.favorite-remove').forEach(button => {
+            button.addEventListener('click', function() {
+                let requestId = this.dataset.id;
+                fetch(`/request/remove_from_favorites/${requestId}/`, {
+                    method: 'GET',
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'removed') {
+                        alert('Удалено из избранного!');
+                    }
+                })
+                .catch(error => console.error('Ошибка:', error));
+            });
+        });
+    });
+    </script>
+    
 
     <style>
-        /* Общие стили */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f6f9;
+        .request-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .request-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .request-description {
+            color: #666;
+            margin: 10px 0;
+        }
+        .request-author {
+            font-size: 14px;
+            color: #333;
+        }
+        .request-button {
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .request-button:hover {
+            background: #0056b3;
+            color: white;
+        }
+        .author-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .filter-form {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .filter-form label {
+        font-weight: bold;
+        color: #333;
+    }
+    .filter-form select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background: white;
+        cursor: pointer;
+    }
+    .filter-form button, #create_request {
+        background: #007bff;
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+    .filter-form button:hover{
+        background: #0056b3;
+    }
+    .header-category {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    @media (max-width: 768px) {
+        .filter-form {
+        flex-direction: column; /* Переход на вертикальную ориентацию */
+        align-items: stretch; /* Растягиваем элементы на всю ширину */
+    }
+    
 }
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Стиль заголовка страницы */
-h2 {
-    font-size: 2rem;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Стили для фильтров */
-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-    gap: 15px;
-}
-
-select {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 10px 15px;
-    font-size: 1rem;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Карточки заявок */
-.request {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 10px 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.request h3 {
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-.request p {
-    font-size: 1rem;
-    color: #555;
-    margin: 5px 0;
-}
-
-.request a {
-    font-size: 1rem;
-    color: #007bff;
-    text-decoration: none;
-    margin-top: 10px;
-}
-
-.request a:hover {
-    text-decoration: underline;
-}
-
-/* Стили для кнопки создания заявки */
-a[href="{% url 'request:create_request' %}"] {
-    display: block;
-    width: fit-content;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.1rem;
-    border-radius: 5px;
-}
-
-a[href="{% url 'request:create_request' %}"]:hover {
-    background-color: #0056b3;
-}
-
-/* Стили для пустого состояния */
-.empty {
-    font-size: 1.2rem;
-    text-align: center;
-    color: #888;
-}
-
     </style>
 {% endblock %}

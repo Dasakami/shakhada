@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Request, Comment
-from .forms import RequestForm, CommentForm
+from .models import Request, Comment, FavoriteClientRequest, FavoriteRequest, ClientComment
+from .forms import RequestForm, CommentForm, ClientCommentForm
 from django.contrib.auth.decorators import login_required
 from users.models import Review
 from django.db.models import Q, Avg
 from .models import ClientRequest
 from .forms import ClientRequestForm
 from notifications.models import Notification
+from django.http import JsonResponse
 
 
 
@@ -44,6 +45,12 @@ def request_detail(request, request_id):
     from users.models import Review
     reviews = Review.objects.filter(user=request_obj.author)
     author_rating = round(sum(r.rating for r in reviews) / reviews.count(), 1) if reviews.exists() else 0
+
+    Notification.objects.create(
+                recipient=request_obj.author, 
+                sender=request.user,
+                message=f"{request.user.username} посмотрел вашу заявку."
+            )
 
     return render(request, "request/request_detail.html", {
         "request_obj": request_obj,
@@ -162,7 +169,11 @@ def client_request_list(request):
 # Детальная страница заявки
 def client_request_detail(request, request_id):
     request_obj = get_object_or_404(ClientRequest, id=request_id)
-    return render(request, "request/client_request_detail.html", {"request_obj": request_obj})
+    comments = request_obj.client_comments.all()
+    form = ClientCommentForm()
+    return render(request, "request/client_request_detail.html", {"request_obj": request_obj,
+                                                                  "comments": comments,
+                                                                  'form':form})
 
 # Создание заявки
 def create_client_request(request):
@@ -211,3 +222,86 @@ def delete_client_request(request, request_id):
         return redirect("request:client_request_list")
 
     return render(request, "request/delete_client_request.html", {"client_request": client_request})
+
+
+def add_client_comment(request, request_id):
+    request_obj = get_object_or_404(ClientRequest, id=request_id)
+    if request.method == 'POST':
+        form = ClientCommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.client_request  = request_obj
+            comment.save()
+            return redirect('request:client_request_detail', request_id=request_id)
+    else:
+        form = ClientCommentForm()
+    return render(request, 'request/add_client_comment.html', {"form": form, "request_obj": request_obj})
+
+@login_required
+def edit_client_comment(request, comment_id):
+    comment = get_object_or_404(ClientComment, id=comment_id, author=request.user)
+    
+    if request.method == "POST":
+        form = ClientCommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            return redirect("request:client_request_detail", request_id=comment.client_request.id)
+    else:
+        form = ClientCommentForm(instance=comment)
+
+    return render(request, "request/edit_client_comment.html", {"form": form, "comment": comment})
+
+@login_required
+def delete_client_comment(request, comment_id):
+    comment = get_object_or_404(ClientComment, id=comment_id, author=request.user)
+
+    if request.method == "POST":
+        request_id = comment.client_request.id
+        comment.delete()
+        return redirect("request:client_request_detail", request_id=request_id)
+
+    return render(request, "request/delete_client_comment.html", {"comment": comment})
+
+
+
+
+
+@login_required
+def add_to_favorites(request, request_id):
+    """ Добавляет заявку в избранное """
+    req = get_object_or_404(Request, id=request_id)
+    FavoriteRequest.objects.get_or_create(user=request.user, request=req)
+    return JsonResponse({'status': 'added'})
+
+@login_required
+def remove_from_favorites(request, request_id):
+    """ Удаляет заявку из избранного """
+    req = get_object_or_404(Request, id=request_id)
+    FavoriteRequest.objects.filter(user=request.user, request=req).delete()
+    return JsonResponse({'status': 'removed'})
+
+@login_required
+def add_to_client_favorites(request, request_id):
+    """ Добавляет заявку в избранное """
+    req = get_object_or_404(ClientRequest, id=request_id)
+    FavoriteClientRequest.objects.get_or_create(user=request.user, client_request=req)
+    return JsonResponse({'status': 'added'})
+
+@login_required
+def remove_from_client_favorites(request, request_id):
+    """ Удаляет заявку из избранного """
+    req = get_object_or_404(ClientRequest, id=request_id)
+    FavoriteClientRequest.objects.filter(user=request.user, client_request=req).delete()
+    return JsonResponse({'status': 'removed'})
+
+
+@login_required
+def favorite_requests(request):
+    favorites = FavoriteRequest.objects.filter(user=request.user).select_related('request')
+    client_favorites = FavoriteClientRequest.objects.filter(user=request.user).select_related('client_request')
+    
+    return render(request, 'request/favorites.html', {
+        'favorites': favorites,
+        'client_favorites': client_favorites
+    })

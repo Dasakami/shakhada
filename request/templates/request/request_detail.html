@@ -1,55 +1,252 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <h2>{{ request_obj.title }}</h2>
-    <p>Автор: {{ request_obj.author.username }} (Рейтинг:{{ author_rating }} )</p>
-    <p>{{ request_obj.description }}</p>
+<div class="container">
+    <div class="column">
+        <div class="left-column">
+            <div class="card">
+                <h2>{{ request_obj.title }}</h2>
+                <p><strong>Зарплата:</strong> {{ request_obj.salary }}</p>
+                <p><strong>График:</strong> {{ request_obj.schedule }}</p>
+    
+                <div class="buttons">
+                    <a href="#" class="button">Откликнуться</a>
+                    <a href="#" class="button" onclick="toggleContacts()">Контакты</a>
+    
+                    <div id="contact-info" style="display: none;">
+                        {% if request_obj.contact_info %}
+                            <p>{{ request_obj.contact_info }}</p>
+                        {% else %}
+                            <p>Контактная информация не предоставлена</p>
+                        {% endif %}
+                    </div>
+                    {% if user == request_obj.author %}
+                    <a href="{% url 'request:edit_request' request_obj.id %}">Редактировать</a>
+                    <a href="{% url 'request:delete_request' request_obj.id %}">Удалить</a>
+                {% endif %}
+    
+                </div>
+            </div>
+    
+            <div class="card">
+                <h3>О компании</h3>
+                <p>{{ request_obj.description }}</p>
+            </div>
+        </div>
+    
+        <div class="right-column">
+            <div class="card">
+                <h3>{{ request_obj.author.username }}</h3>
+                <p>Рейтинг: {{ author_rating }}</p>
+            </div>
+    
+            <div class="card">
+                <h3>Похожие вакансии</h3>
+                <ul>
+                    {% for job in similar_jobs %}
+                        <li><a href="{{ job.get_absolute_url }}">{{ job.title }}</a> ({{ job.salary }})</li>
+                    {% empty %}
+                        <li>Нет похожих вакансий</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
-    {% if request_obj.contact_info %}
-    <h3>Контактная информация:</h3>
-    <p>{{ request_obj.contact_info }}</p>
-{% else %}
-    <p>Контактная информация не предоставлена</p>
-{% endif %}
-
-    {% if request_obj.image %}
-        <img src="{{ request_obj.image.url }}" alt="Изображение">
-    {% endif %}
-
-    {% if user == request_obj.author %}
-        <a href="{% url 'request:edit_request' request_obj.id %}">Редактировать</a>
-        <a href="{% url 'request:delete_request' request_obj.id %}">Удалить</a>
-    {% endif %}
-
-    <h3>Комментарии</h3>
-    {% for comment in comments %}
+<h3>Комментарии</h3>
+{% for comment in comments %}
     <div class="comment">
         {% if comment.author.image %}
-            <img src="{{ comment.author.image.url }}" alt="Avatar" class="avatar">
+        <img src="{{ comment.author.image.url }}" alt="Avatar" class="avatar">
         {% else %}
         <img src="{% static 'vendor/img/Recon.png' %}" alt="Default Avatar" class="avatar">
         {% endif %}
-        <a href="{% url 'users:profile' comment.author.username %}">{{ comment.author.username }}</a>
-        <p>{{ comment.text }}</p>
-        <p><small>{{ comment.created_at }}</small></p>
+        <div class="comment-content">
+            <a href="{% url 'users:profile' comment.author.username %}">{{ comment.author.username }}</a>
+            <p>{{ comment.text }}</p>
+            <p><small>{{ comment.created_at }}</small></p>
 
-        {% if comment.author == request.user %}
-            <a href="{% url 'request:edit_comment' comment.id %}">Редактировать</a>
-            <form action="{% url 'request:delete_comment' comment.id %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit">Удалить</button>
-            </form>
-        {% endif %}
+            {% if comment.author == request.user %}
+                <div class="comment-actions">
+                    <a href="{% url 'request:edit_comment' comment.id %}">Редактировать</a>
+                    <form action="{% url 'request:delete_comment' comment.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit">Удалить</button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
     </div>
+{% empty %}
+    <p>Комментариев пока нет.</p>
 {% endfor %}
 
+<h3>Добавить комментарий</h3>
+<form method="POST" action="{% url 'request:add_comment' request_obj.id %}" class="comment-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+<script>
+    function toggleContacts() {
+        let contactBlock = document.getElementById("contact-info");
+        contactBlock.style.display = (contactBlock.style.display === "none" || contactBlock.style.display === "") ? "block" : "none";
+    }
+</script>
 
 
+<style>
+    .column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-    <h3>Добавить комментарий</h3>
-    <form method="POST" action="{% url 'request:add_comment' request_obj.id %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Отправить</button>
-    </form>
+.left-column {
+    width: 65%;
+}
+
+.right-column {
+    width: 30%;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.card {
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background: #007bff;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-content a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.comment-content p {
+    margin: 5px 0;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 10px;
+    font-size: 0.9em;
+}
+
+.comment-actions a,
+.comment-actions button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.comment-actions button {
+    color: red;
+}
+
+.comment-form {
+    margin-top: 15px;
+}
+
+.comment-form button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .column {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .left-column {
+        width: 100%;
+    }
+
+    .right-column {
+        display: none; /* Скрываем правый раздел на экранах меньше 768px */
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .comment {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .comment-actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .comment-form button {
+        width: 100%; /* Кнопка отправки комментария на всю ширину */
+    }
+}
+
+@media (max-width: 480px) {
+    .comment-content p {
+        font-size: 0.9em; /* Уменьшаем размер текста для мобильных устройств */
+    }
+
+    .button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .card {
+        padding: 10px;
+    }
+}
+</style>
 {% endblock %}

@@ -1,16 +1,130 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-    <h2>{{ request_obj.title }}</h2>
-    <p>Автор: {{ request_obj.author.username }} (Рейтинг: {{ request_obj.get_author_rating }})</p>
-    <p>Описание: {{ request_obj.description }}</p>
+    <div id="request-container">
+        <h2 id="request-title">{{ request_obj.title }}</h2>
+        <p>Описание: {{ request_obj.description }}</p>
+        <p id="request-author">
+            Автор: {{ request_obj.author.username }} 
+            <span class="author-rating">(Рейтинг: {{ request_obj.get_author_rating }})</span>
+        </p>
 
-    {% if request_obj.image %}
-        <img src="{{ request_obj.image.url }}" alt="Изображение заявки" width="400">
-    {% endif %}
+        {% if request_obj.image %}
+            <img id="request-image" src="{{ request_obj.image.url }}" alt="Изображение заявки">
+        {% endif %}
 
-    {% if user == request_obj.author %}
-                <a href="{% url 'request:edit_client_request' request_obj.id %}">Редактировать</a>
-                <a href="{% url 'request:delete_client_request' request_obj.id %}">Удалить</a>
-            {% endif %}
+        {% if user == request_obj.author %}
+            <div id="request-actions">
+                <a class="btn edit-btn" href="{% url 'request:edit_client_request' request_obj.id %}">Редактировать</a>
+                <a class="btn delete-btn" href="{% url 'request:delete_client_request' request_obj.id %}">Удалить</a>
+            </div>
+        {% endif %}
+
+        <h3>Коментарий</h3>
+        <div class="comment">
+            {% for comment in comments %}
+            <div class="comment-content">
+                <a href="{% url 'users:profile' comment.author.username %}">{{ comment.author.username }}</a>
+                <p>{{ comment.text }}</p>
+                <p><small>{{ comment.created_at }}</small></p>
+    
+                {% if comment.author == request.user %}
+                    <div class="comment-actions">
+                        <a href="{% url 'request:edit_client_comment' comment.id %}">Редактировать</a>
+                        <form action="{% url 'request:delete_client_comment' comment.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit">Удалить</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+            {% empty %}
+    <p>Комментариев пока нет.</p>
+            {% endfor %}
+
+            
+        </div>
+
+        <h3>Добавить комментарий</h3>
+        <form method="POST" action="{% url 'request:add_client_comment' request_obj.id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Отправить</button>
+        </form>
+        
+    </div>
+
+    <style>
+        /* Общий контейнер */
+#request-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+#request-title {
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+/* Автор */
+#request-author {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Рейтинг автора */
+.author-rating {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Изображение */
+#request-image {
+    display: block;
+    margin: 20px 0;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+/* Блок с кнопками */
+#request-actions {
+    margin-top: 15px;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background 0.3s;
+}
+
+/* Кнопка "Редактировать" */
+.edit-btn {
+    background-color: #007bff;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Кнопка "Удалить" */
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+    </style>
 {% endblock %}

@@ -2,10 +2,76 @@
 
 {% block content %}
 <h2>Добавить работу</h2>
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" class="add-job-form">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Добавить</button>
 </form>
-<a href="{% url 'users:profile' username=request.user.username %}">Назад</a>
+<a href="{% url 'users:profile' username=request.user.username %}" class="add-job-back">Назад</a>
+
+<style>
+    /* Основной контейнер формы */
+.add-job-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Поля ввода */
+.add-job-form input, 
+.add-job-form textarea, 
+.add-job-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Кнопка отправки */
+.add-job-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.add-job-form button:hover {
+    background: #0056b3;
+}
+
+/* Ссылка "Назад" */
+.add-job-back {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1em;
+}
+
+.add-job-back:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .add-job-form {
+        padding: 15px;
+    }
+
+    .add-job-form button {
+        font-size: 1em;
+    }
+}
+
+</style>
 {% endblock %}

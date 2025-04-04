@@ -1,32 +1,35 @@
 {% extends "base.html" %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'vendor/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/css/pro.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="profile-container">
-    <!-- Баннер -->
-    <div class="profile-banner">
-        {% if user.banner %}
-            <img src="{{ user.banner.url }}" alt="Banner">
-        {% endif %}
+    <div class="profile-header">
+        <img class="profile-avatar" src="{% if user.image %}{{ user.image.url }}{% else %}{% static 'vendor/img/Recon.png' %}{% endif %}" alt="Avatar">
+        <div class="profile-info">
+            <h2>{{ user.username }}</h2>
+            <div class="stats">
+                <span><b>{{ user.works.count }}</b> Постов</span>
+                <span><b>{{ average_rating|floatformat:1 }}</b> Рейтинг</span>
+                <span><b>Роль</b> {{ user.role }}   </span>
+            </div>
+            <p>{{ user.about }}</p>
+            <div class="button-profile-flex">
+                {% if user == request.user %}
+                <a href="{% url 'users:setting' username=request.user.username %}" class="btn">Edit Profile</a>
+            {% endif %}
+            <a href="{% url 'users:reviews' username=user.username %}" class="btn">Посмотреть отзывы</a>
+    {% if user == request.user %}
+    <a href="{% url 'users:add_work' username=request.user.username %}">Добавить работу</a>
+    {% endif %}
+            </div>
+        </div>
     </div>
-
-    <!-- Аватарка и инфо -->
-    <div class="profile-info">
-        <img class="profile-avatar" src="{% if user.image %}{{ user.image.url }} {% else %} {% static 'vendor/img/Recon.png' %}  {% endif %}" alt="Avatar">
-        <h2>{{ user.username }}</h2>
-        <h6>Рейтинг: {{ average_rating|floatformat:1 }}</h6> 
-        <p>{{ user.about }}</p>
-        <p>{{ user.role }}</p>
-        {% if user == request.user %}
-            <a href="{% url 'users:setting' username=request.user.username %}">Настройки</a>
-        {% endif %}
+    <div class="hr">
+        <hr>
     </div>
-
-    <!-- Работы -->
-    <h3>Работы</h3>
     <div class="works-grid">
         {% for work in user.works.all %}
             <div class="work-card">
@@ -37,12 +40,13 @@
                 {% elif work.image %}
                     <img class="work-media" src="{{ work.image.url }}" alt="{{ work.title }}">
                 {% endif %}
-                <p>{{ work.title }}</p>
             </div>
         {% empty %}
-            <p>Нет работ</p>
+            <p>No posts yet</p>
         {% endfor %}
     </div>
+</div>
+
     
     <!-- Модальное окно для отображения изображения или видео -->
     <div id="modal" class="modal">
@@ -55,12 +59,8 @@
         </div>
     </div>
     
-    <a href="{% url 'users:reviews' username=user.username %}" class="btn">Посмотреть отзывы</a>
-    {% if user == request.user %}
-    <a href="{% url 'users:add_work' username=request.user.username %}">Добавить работу</a>
-    {% endif %}
+    
 </div>
-
 
 <script>
     document.querySelectorAll('.work-media').forEach(media => {
@@ -70,11 +70,9 @@
         const modalVideo = document.getElementById('modal-video');
         const modalVideoSource = document.getElementById('modal-video-source');
 
-        // Скрыть элементы, которые не нужны
         modalImage.style.display = 'none';
         modalVideo.style.display = 'none';
 
-        // Проверяем, что это изображение или видео
         if (this.tagName.toLowerCase() === 'img') {
             modalImage.src = this.src;
             modalImage.style.display = 'block';
@@ -84,17 +82,14 @@
             modalVideo.style.display = 'block';
         }
 
-        // Показываем модальное окно
         modal.style.display = 'flex';
     });
 });
 
-// Закрытие модального окна при нажатии на крестик
 document.getElementById('close').addEventListener('click', function() {
     document.getElementById('modal').style.display = 'none';
 });
 
-// Закрытие модального окна при клике вне окна
 window.addEventListener('click', function(event) {
     if (event.target == document.getElementById('modal')) {
         document.getElementById('modal').style.display = 'none';

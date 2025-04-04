@@ -1,11 +1,91 @@
-<h2>Уведомления</h2>
-<ul>
-    {% for notification in notifications %}
-        <li {% if not notification.is_read %}style="font-weight: bold;"{% endif %}>
-            {{ notification.message }} - {{ notification.created_at|date:"d.m.Y H:i" }}
-            <a href="{% url 'notifications:mark_as_read' notification.id %}">Отметить как прочитанное</a>
-        </li>
-    {% empty %}
-        <li>Нет уведомлений</li>
-    {% endfor %}
-</ul>
+<div class="notifications-container">
+    <h2>Уведомления</h2>
+    <ul class="notifications-list">
+        {% for notification in notifications %}
+            <li {% if not notification.is_read %}style="font-weight: bold;"{% endif %}>
+                <div class="notification-text">
+                    {{ notification.message }} - {{ notification.created_at|date:"d.m.Y H:i" }}
+                </div>
+                <a href="{% url 'notifications:mark_as_read' notification.id %}">Отметить как прочитанное</a>
+            </li>
+        {% empty %}
+            <li>Нет уведомлений</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<style>
+    /* Стили для контейнера уведомлений */
+.notifications-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notifications-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Стили для списка уведомлений */
+.notifications-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.notifications-list li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background: #fff;
+    border-left: 5px solid #007bff; /* Индикатор прочитанных */
+    transition: background 0.3s ease;
+}
+
+/* Непрочитанные уведомления */
+.notifications-list li[style="font-weight: bold;"] {
+    font-weight: bold;
+    background: #e6f2ff;
+    border-left: 5px solid #ff5e57; /* Красный индикатор */
+}
+
+/* Стили для ссылок */
+.notifications-list a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s;
+    white-space: nowrap; /* Чтобы ссылка не переносилась */
+}
+
+.notifications-list a:hover {
+    color: #ff5e57;
+}
+
+/* 🔥 АДАПТИВНОСТЬ 🔥 */
+@media (max-width: 600px) {
+    .notifications-container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .notifications-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .notifications-list a {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+}
+</style>

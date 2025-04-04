@@ -1,5 +1,5 @@
 from django import forms
-from .models import Request, Comment
+from .models import Request, Comment, ClientComment
 
 
 class RequestForm(forms.ModelForm):
@@ -20,6 +20,15 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ["text"]
+        labels = {"text": "Комментарий"}
+        widgets = {
+            "text": forms.Textarea(attrs={"class": "form-control", "rows": 3, "placeholder": "Оставьте комментарий"}),
+        }
+
+class ClientCommentForm(forms.ModelForm):
+    class Meta:
+        model = ClientComment
+        fields = ['text']
         labels = {"text": "Комментарий"}
         widgets = {
             "text": forms.Textarea(attrs={"class": "form-control", "rows": 3, "placeholder": "Оставьте комментарий"}),

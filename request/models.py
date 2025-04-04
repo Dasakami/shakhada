@@ -67,3 +67,29 @@ class ClientRequest(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
+
+class ClientComment(models.Model):
+    client_request = models.ForeignKey(ClientRequest, on_delete=models.CASCADE, related_name='client_comments')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='clietn_comment_author')
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Комментарий от {self.author.username}"
+
+
+
+class FavoriteRequest(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    request = models.ForeignKey(Request, on_delete=models.CASCADE)
+    
+    class Meta:
+        unique_together = ('user', 'request')
+
+class FavoriteClientRequest(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    client_request = models.ForeignKey(ClientRequest, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'client_request')
+

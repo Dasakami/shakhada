@@ -1,35 +1,231 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Заявки от клиентов</h2>
-    <a href="{% url 'request:create_client_request' %}">Создать заявку</a>
+    <div id="request-list-container">
+        <h2 id="request-list-title">Заявки от клиентов</h2>
+        <a id="create-request-btn" href="{% url 'request:create_client_request' %}">Создать заявку</a>
 
+        <form id="search-form" method="GET">
+            <input type="text" name="search" value="{{ search_query }}" placeholder="Поиск заявок...">
+            <button type="submit">🔍</button>
+        </form>
 
-    <form method="GET">
-        <input type="text" name="search" value="{{ search_query }}" placeholder="Поиск заявок...">
-        <button type="submit">🔍</button>
-    </form>
+        <form id="sort-form" method="GET">
+            <label for="sort_by">Сортировать по:</label>
+            <select name="sort_by" onchange="this.form.submit()">
+                <option value="newest">Новые</option>
+                <option value="oldest">Старые</option>
+                <option value="rating">Рейтинг автора</option>
+            </select>
+        </form>
 
-    
-    <form method="GET">
-        <label for="sort_by">Сортировать по:</label>
-        <select name="sort_by" onchange="this.form.submit()">
-            <option value="newest">Новые</option>
-            <option value="oldest">Старые</option>
-            <option value="rating">Рейтинг автора</option>
-        </select>
-    </form>
+        {% for request_obj in requests %}
+            <div class="request-item">
+                <h3><a href="{% url 'request:client_request_detail' request_obj.id %}">{{ request_obj.title }}</a></h3>
+                <p class="request-author">Автор: {{ request_obj.author.username }} (Рейтинг: {{ request_obj.get_author_rating }})</p>
+                <p class="request-description">Описание: {{ request_obj.description|truncatechars:70 }}</p>
+                {% if request_obj.image %}
+                    <img class="request-image" src="{{ request_obj.image.url }}" alt="Изображение заявки" width="200">
+                {% endif %}
+                <div class="favorite-buttons">
+                    <button class="favorite-add" data-id="{{ request_obj.id }}">Добавить в избранное</button>
+                    <button class="favorite-remove" data-id="{{ request_obj.id }}">Удалить из избранного</button>
+                </div>
+            </div>
+        {% empty %}
+            <p>Заявок пока нет.</p>
+        {% endfor %}
+    </div>
 
-    {% for request_obj in requests %}
-        <div>
-            <h3><a href="{% url 'request:client_request_detail' request_obj.id %}">{{ request_obj.title }}</a></h3>
-            <p>Автор: {{ request_obj.author.username }} (Рейтинг: {{ request_obj.get_author_rating }})</p>
-            <p>Описание: {{ request_obj.description|truncatechars:100 }}</p>
-            {% if request_obj.image %}
-                <img src="{{ request_obj.image.url }}" alt="Изображение заявки" width="200">
-            {% endif %}
-        </div>
-    {% empty %}
-        <p>Заявок пока нет.</p>
-    {% endfor %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.favorite-add').forEach(button => {
+                button.addEventListener('click', function() {
+                    let requestId = this.dataset.id;
+                    fetch(`/request/add_to_client_favorites/${requestId}/`, {
+                        method: 'GET',
+                        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'added') {
+                            alert('Добавлено в избранное!');
+                        }
+                    })
+                    .catch(error => console.error('Ошибка:', error));
+                });
+            });
+
+            document.querySelectorAll('.favorite-remove').forEach(button => {
+                button.addEventListener('click', function() {
+                    let requestId = this.dataset.id;
+                    fetch(`/request/remove_from_client_favorites/${requestId}/`, {
+                        method: 'GET',
+                        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'removed') {
+                            alert('Удалено из избранного!');
+                        }
+                    })
+                    .catch(error => console.error('Ошибка:', error));
+                });
+            });
+        });
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Общий стиль */
+body {
+    background: #f4f5f7;
+    color: #222;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер списка заявок */
+#request-list-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+#request-list-title {
+    text-align: center;
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Кнопка "Создать заявку" */
+#create-request-btn {
+    display: inline-block;
+    background: #d6001c;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#create-request-btn:hover {
+    background: #a00015;
+}
+
+/* Форма поиска и сортировки */
+#search-form, #sort-form {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#search-form input,
+#sort-form select {
+    padding: 8px;
+    background: #fff;
+    color: #222;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#search-form button {
+    padding: 8px;
+    background: #d6001c;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#search-form button:hover {
+    background: #a00015;
+}
+
+/* Карточка заявки */
+.request-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+    transition: all 0.2s ease;
+}
+
+.request-item:hover {
+    background: #f9f9f9;
+}
+
+/* Заголовок заявки */
+.request-item h3 a {
+    color: #d6001c;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.request-item h3 a:hover {
+    text-decoration: underline;
+}
+
+/* Автор и описание */
+.request-author {
+    color: #666;
+    font-size: 14px;
+}
+
+.request-description {
+    color: #333;
+    font-size: 16px;
+}
+
+/* Изображение заявки */
+.request-image {
+    display: block;
+    margin-top: 10px;
+    max-width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* Кнопки избранного */
+.favorite-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.favorite-add, .favorite-remove {
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.favorite-add {
+    background: #0073e6;
+    color: white;
+}
+
+.favorite-add:hover {
+    background: #005bb5;
+}
+
+.favorite-remove {
+    background: #d6001c;
+    color: white;
+}
+
+.favorite-remove:hover {
+    background: #a00015;
+}
+
+    </style>
 {% endblock %}
