@@ -15,7 +15,6 @@ urlpatterns = [
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
     path('suddenly/', admin.site.urls),
-    path('', redirect_to_lang),  # редирект с / на /ru/
     *i18n_patterns(
         path('', include('main.urls')),
     ),
