@@ -1,10 +1,11 @@
 <!-- templates/users/register_done.html -->
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
   <div class="container">
-    <h2>Регистрация прошла успешно!</h2>
-    <p>Спасибо за регистрацию. Теперь вы можете войти в свою учетную запись.</p>
+    <h2>{% trans 'Регистрация прошла успешно!' %}</h2>
+    <p>{% trans 'Спасибо за регистрацию. Теперь вы можете войти в свою учетную запись.' %}</p>
     <a href="{% url 'users:login' %}" class="btn btn-primary">Войти</a>
   </div>
 {% endblock %}

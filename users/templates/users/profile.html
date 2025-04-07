@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'vendor/css/pro.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/css/profile.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -24,6 +24,19 @@
     {% if user == request.user %}
     <a href="{% url 'users:add_work' username=request.user.username %}">Добавить работу</a>
     {% endif %}
+
+    <a href="{% url 'switch_theme' %}?next={{ request.path }}" class="theme-toggle-link {% if request.theme == 'dark' %}dark{% endif %}">
+        <button class="theme__icon">
+          <span></span>
+          <span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span></span>
+        </button>
+      </a>
             </div>
         </div>
     </div>

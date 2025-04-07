@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'vendor/css/home-white.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/css/home-whit.css' %}">
 {% endblock %}
 {% block title %} Shakhada {% endblock %}
 {% block content %}
@@ -9,16 +10,16 @@
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col-12 col-lg-9">
-          <h1 class="ezy__header29_78nRsOmo-heading">Найди и найм лучших специалистов в SMM, фото, видео и маркетинге!</h1>
+          <h1 class="ezy__header29_78nRsOmo-heading">{% trans 'Найди и найм лучших специалистов в SMM, фото, видео и маркетинге!' %}</h1>
           <p class="ezy__header29_78nRsOmo-sub-heading px-5 py-4">
-            Ищешь опытного специалиста для продвижения бизнеса? Или ты сам — SMM-менеджер, видеограф, маркетолог и хочешь получать заказы?
+            {% trans 'Ищешь опытного специалиста для продвижения бизнеса? Или ты сам — SMM-менеджер, видеограф, маркетолог и хочешь получать заказы? ' %}
           </p>
           <div class="row justify-content-center">
             <div class="col-12 col-md-8">
               <form class="px-5" action="{% url 'request:request_list' %}" method="GET">
                 <div class="form-group mb-0">
                   <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Поиск заявок..." value="{{ query }}" >
+                    <input type="text" name="q" class="form-control" placeholder="{% trans 'Поиск заявок...' %}" value="{{ query }}" >
                     <button class="btn ezy__header29_78nRsOmo-btn" type="submit"><i class="fas fa-search"></i></button>
                   </div>
                 </div>
@@ -35,19 +36,19 @@
       <div class="row text-center">
         <div class="col-12 col-sm-6 col-lg-3 mb-5 mb-lg-0">
           <h3 class="mb-3 mb-md-4">10 000+</h3>
-          <h5 class="mb-0">Откликов каждый месяц</h5>
+          <h5 class="mb-0">{% trans 'Откликов каждый месяц' %}</h5>
         </div>
         <div class="col-12 col-sm-6 col-lg-3 mb-5 mb-lg-0">
           <h3 class="mb-3 mb-md-4">1000+</h3>
-          <h5 class="mb-0"> Зарегистрированных специалистов</h5>
+          <h5 class="mb-0"> {% trans 'Зарегистрированных специалистов' %}</h5>
         </div>
         <div class="col-12 col-sm-6 col-lg-3 mb-5 mb-lg-0">
           <h3 class="mb-3 mb-md-4">534</h3>
-          <h5 class="mb-0"> Успешных проектов</h5>
+          <h5 class="mb-0">{% trans ' Успешных проектов' %} </h5>
         </div>
         <div class="col-12 col-sm-6 col-lg-3 mb-5 mb-lg-0">
           <h3 class="mb-3 mb-md-4">93%</h3>
-          <h5 class="mb-0">Клиентов находят исполнителя за 24 часа</h5>
+          <h5 class="mb-0">{% trans 'Клиентов находят исполнителя за 24 часа' %} </h5>
         </div>
       </div>
     </div>
@@ -59,8 +60,8 @@
       <div class="row ezy__team12_MxU7Pf3b-separator text-center">
         <!-- Start: Section Heading -->
         <div class="">
-          <h3 class="ezy__team12_MxU7Pf3b-heading">Команда основателей</h3>
-          <p class="ezy__team12_MxU7Pf3b-sub-heading mt-3 mb-5">Мы не идеальны, но зато смешные. А сайт вроде работает!</p>
+          <h3 class="ezy__team12_MxU7Pf3b-heading">{% trans 'Команда основателей' %} </h3>
+          <p class="ezy__team12_MxU7Pf3b-sub-heading mt-3 mb-5">{% trans 'Мы не идеальны, но зато смешные. А сайт вроде работает!' %}</p>
         </div>
         <!-- End: Section Heading -->
   
@@ -171,9 +172,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mb-5">
-          <h2 class="ezy__faq9_Kb3hGEJe-heading mb-4">Часто задаваемые вопросы</h2>
+          <h2 class="ezy__faq9_Kb3hGEJe-heading mb-4">{% trans 'Часто задаваемые вопросы' %}</h2>
 <p class="ezy__faq9_Kb3hGEJe-sub-heading mb-0">
-  Здесь вы найдете ответы на самые популярные вопросы о работе нашей платформы. Если не нашли нужную информацию, свяжитесь с нами!
+  {% trans 'Здесь вы найдете ответы на самые популярные вопросы о работе нашей платформы. Если не нашли нужную информацию, свяжитесь с нами!' %}'
 </p>
 
         </div>
@@ -187,55 +188,55 @@
           <div class="ezy__faq9_Kb3hGEJe-item">
             <h5
               class="p-3 p-lg-4 mb-0 w-100 text-start d-flex justify-content-between align-items-center ezy__faq9_Kb3hGEJe-btn-collapse">
-              <span>Как работает платформа?</span>
+              <span>{% trans 'Как работает платформа?' %}</span>
             </h5>
             <div class="ezy__faq9_Kb3hGEJe-content px-3 px-lg-4 pb-lg-4">
               <p class="opacity-50 mb-0">
-                Вы можете оставить заявку на услугу или выбрать специалиста из списка. После этого начинается общение и обсуждение деталей.
+                {% trans 'Вы можете оставить заявку на услугу или выбрать специалиста из списка. После этого начинается общение и обсуждение деталей.' %}
               </p>
             </div>
           </div>
           <div class="ezy__faq9_Kb3hGEJe-item">
             <h5
               class="p-3 p-lg-4 mb-0 w-100 text-start d-flex justify-content-between align-items-center ezy__faq9_Kb3hGEJe-btn-collapse">
-              <span> Сколько стоит использование платформы?</span>
+              <span> {% trans 'Сколько стоит использование платформы?' %}</span>
             </h5>
             <div class="ezy__faq9_Kb3hGEJe-content px-3 px-lg-4 pb-lg-4">
               <p class="opacity-50 mb-0">
-                Размещение заявок и поиск специалистов – бесплатно. Возможны дополнительные платные функции для продвижения.
+                {% trans 'Размещение заявок и поиск специалистов – бесплатно. Возможны дополнительные платные функции для продвижения.' %}'
               </p>
             </div>
           </div>
           <div class="ezy__faq9_Kb3hGEJe-item">
             <h5
               class="p-3 p-lg-4 mb-0 w-100 text-start d-flex justify-content-between align-items-center ezy__faq9_Kb3hGEJe-btn-collapse">
-              <span>Какие специалисты здесь работают?</span>
+              <span>{% trans 'Какие специалисты здесь работают?' %}</span>
             </h5>
             <div class="ezy__faq9_Kb3hGEJe-content px-3 px-lg-4 pb-lg-4">
               <p class="opacity-50 mb-0">
-                На платформе можно найти SMM-специалистов, маркетологов, видеографов, мобилографов, копирайтеров и других.
+                {% trans 'На платформе можно найти SMM-специалистов, маркетологов, видеографов, мобилографов, копирайтеров и других.' %}
               </p>
             </div>
           </div>
           <div class="ezy__faq9_Kb3hGEJe-item">
             <h5
               class="p-3 p-lg-4 mb-0 w-100 text-start d-flex justify-content-between align-items-center ezy__faq9_Kb3hGEJe-btn-collapse">
-              <span>Как убедиться в надежности специалиста?</span>
+              <span>{% trans 'Как убедиться в надежности специалиста?' %}</span>
             </h5>
             <div class="ezy__faq9_Kb3hGEJe-content px-3 px-lg-4 pb-lg-4">
               <p class="opacity-50 mb-0">
-                Вы можете просмотреть портфолио, отзывы и рейтинг специалиста перед тем, как начать сотрудничество.
+                {% trans 'Вы можете просмотреть портфолио, отзывы и рейтинг специалиста перед тем, как начать сотрудничество.' %}
               </p>
             </div>
           </div>
           <div class="ezy__faq9_Kb3hGEJe-item">
             <h5
               class="p-3 p-lg-4 mb-0 w-100 text-start d-flex justify-content-between align-items-center ezy__faq9_Kb3hGEJe-btn-collapse">
-              <span>Что делать, если возникли проблемы с заказом?</span>
+              <span>{% trans 'Что делать, если возникли проблемы с заказом?' %}</span>
             </h5>
             <div class="ezy__faq9_Kb3hGEJe-content px-3 px-lg-4 pb-lg-4">
               <p class="opacity-50 mb-0">
-                Свяжитесь с нашей поддержкой – мы поможем разобраться в ситуации.
+                {% trans 'Свяжитесь с нашей поддержкой – мы поможем разобраться в ситуации.' %}
               </p>
             </div>
           </div>

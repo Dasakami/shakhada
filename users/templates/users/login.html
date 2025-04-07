@@ -1,4 +1,5 @@
-{% load static %}   
+{% load static %} 
+{% load i18n %}  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -191,7 +192,7 @@ a:hover {
     }
 
     </style>
-    <title>Login</title>
+    <title>{% trans 'Войти' %}</title>
 </head>
 <body>
     <main>
@@ -215,21 +216,21 @@ a:hover {
                         </div>
                     {% endif %}
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
-                        <div class="card-header"><h3 class="text-center font-weight-light my-4">Авторизация</h3></div>
+                        <div class="card-header"><h3 class="text-center font-weight-light my-4">{% trans 'Авторизация' %}</h3></div>
                         <div class="card-body">
                             <form action="{% url 'users:login' %}" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <label for="{{ form.username.id_for_label }}">Имя пользователя</label>
+                                    <label for="{{ form.username.id_for_label }}">{% trans 'Имя пользователя' %}</label>
                                     {{ form.username }}
                                 </div>
                                 <div class="form-group">
-                                    <label for="{{ form.password.id_for_label }}">Пароль</label>
+                                    <label for="{{ form.password.id_for_label }}">{% trans 'Пароль' %}</label>
                                     {{ form.password }}
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                    <a href="{% url 'users:password_reset' %}">Забыли пароль?</a>
-                                    <input class="btn btn-primary" type="submit" value="Авторизоваться">
+                                    <a href="{% url 'users:password_reset' %}">{% trans 'Забыли пароль?' %}</a>
+                                    <input class="btn btn-primary" type="submit" value="{% trans 'Авторизоваться' %}">
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0 social-icons">
                                     <a href="#">
@@ -245,10 +246,10 @@ a:hover {
                             </form>
                         </div>
                         <div>
-                            <a href="" class="vk-login-link">Войти через ВКонтакте</a>
+                            <a href="" class="vk-login-link">{% trans 'Войти через ВКонтакте' %}</a>
                         </div>
                         <div class="card-footer text-center">
-                            <div class="small"><a href="{% url 'users:register' %}">Нужен аккаунт? Зарегистрируйся!</a></div>
+                            <div class="small"><a href="{% url 'users:register' %}">{% trans 'Нужен аккаунт? Зарегистрируйся!' %}</a></div>
                         </div>
                     </div>
                 </div>

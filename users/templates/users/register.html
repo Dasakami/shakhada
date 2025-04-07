@@ -1,11 +1,11 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'vendor/css/bootstrapsss.min.css' %}">
-    <link href="{% static 'vendor/css/bootstrapss.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'vendor/css/bootstrapss-blacks.min.css' %}" rel="stylesheet"/>
     <title>Register</title>
     <style>
         body {
@@ -89,7 +89,7 @@
             {% csrf_token %}
             
             <div class="form-group">
-                <label for="{{ form.first_name.id_for_label }}">Имя</label>
+                <label for="{{ form.first_name.id_for_label }}">{% trans 'Имя' %}</label>
                 {{ form.first_name }}
                 {% if form.first_name.errors %}
                     <div class="invalid-feedback">
@@ -101,7 +101,7 @@
             </div>
     
             <div class="form-group">
-                <label for="{{ form.last_name.id_for_label }}">Фамилия</label>
+                <label for="{{ form.last_name.id_for_label }}">{% trans 'Фамилия' %}</label>
                 {{ form.last_name }}
                 {% if form.last_name.errors %}
                     <div class="invalid-feedback">
@@ -113,7 +113,7 @@
             </div>
     
             <div class="form-group">
-                <label for="{{ form.username.id_for_label }}">Имя пользователя</label>
+                <label for="{{ form.username.id_for_label }}">{% trans 'Имя пользователя' %}</label>
                 {{ form.username }}
                 {% if form.username.errors %}
                     <div class="invalid-feedback">
@@ -124,13 +124,13 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                <label for="{{ form.role.id_for_label }}">Выберите роль</label>
+                <label for="{{ form.role.id_for_label }}">{% trans 'Выберите роль' %}</label>
                 {{ form.role }}
             </div>
             
     
             <div class="form-group">
-                <label for="{{ form.email.id_for_label }}">Электронная почта</label>
+                <label for="{{ form.email.id_for_label }}">{% trans 'Электронная почта' %}</label>
                 {{ form.email }}
                 {% if form.email.errors %}
                     <div class="invalid-feedback">
@@ -142,7 +142,7 @@
             </div>
     
             <div class="form-group">
-                <label for="{{ form.password1.id_for_label }}">Пароль</label>
+                <label for="{{ form.password1.id_for_label }}">{% trans 'Пароль' %}</label>
                 {{ form.password1 }}
                 {% if form.password1.errors %}
                     <div class="invalid-feedback">
@@ -154,7 +154,7 @@
             </div>
     
             <div class="form-group">
-                <label for="{{ form.password2.id_for_label }}">Подтверждение пароля</label>
+                <label for="{{ form.password2.id_for_label }}">{% trans 'Подтверждение пароля' %}</label>
                 {{ form.password2 }}
                 {% if form.password2.errors %}
                     <div class="invalid-feedback">
@@ -165,11 +165,11 @@
                 {% endif %}
             </div>
     
-            <button type="submit" class="btn-primary">Создать аккаунт</button>
+            <button type="submit" class="btn-primary">{% trans 'Создать аккаунт' %}</button>
         </form>
     
         <div class="small">
-            <a href="{% url 'users:login' %}">Уже есть аккаунт? Авторизоваться</a>
+            <a href="{% url 'users:login' %}">{% trans 'Уже есть аккаунт? Авторизоваться' %}</a>
         </div>
     </div>
     

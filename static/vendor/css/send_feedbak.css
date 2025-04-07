@@ -7,8 +7,6 @@
 	--ezy-theme-color: rgb(13, 110, 253);
 	--ezy-theme-color-rgb: 13, 110, 253;
 	--ezy-shape-color: #363449;
-
-	background-color: var(--bs-body-bg);
 	padding: 40px 0;
 }
 

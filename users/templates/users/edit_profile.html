@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
-<h2>Редактировать профиль</h2>
+<h2>{% trans 'Редактировать профиль' %}</h2>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Сохранить</button>
+    <button type="submit">{% trans 'Сохранить' %} </button>
 </form>
-    <a href="{% url 'users:profile' username=request.user.username %}">Назад</a>
+    <a href="{% url 'users:profile' username=request.user.username %}">{% trans 'Назад' %}</a>
 {% endblock %}

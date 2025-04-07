@@ -1,10 +1,62 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
-    <h2>Создать заявку</h2>
-    <form method="POST" enctype="multipart/form-data">
+    <h2 style="text-align: center; color: #0d47a1; margin-bottom: 30px;">
+        {% trans 'Создать заявку' %}
+    </h2>
+
+    <form method="POST" enctype="multipart/form-data" class="create-request-form">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Отправить</button>
     </form>
+
+    <style>
+        .create-request-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+    
+        .create-request-form input,
+        .create-request-form select,
+        .create-request-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+    
+        .create-request-form input:focus,
+        .create-request-form select:focus,
+        .create-request-form textarea:focus {
+            border-color: #1976d2;
+            outline: none;
+        }
+    
+        .create-request-form button[type="submit"] {
+            width: 100%;
+            background-color: #1976d2;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        .create-request-form button[type="submit"]:hover {
+            background-color: #0d47a1;
+        }
+    </style>
+    
 {% endblock %}
+

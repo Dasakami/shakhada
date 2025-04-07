@@ -30,3 +30,14 @@ def server_error(request):
 
 def permission_denied(request, exception):
     return render(request, '403.html', status=403)
+
+
+from django.shortcuts import redirect
+
+def switch_theme(request):
+    next_url = request.GET.get('next', '/')
+    response = redirect(next_url)
+    current = request.COOKIES.get('theme', 'light')
+    new_theme = 'dark' if current == 'light' else 'light'
+    response.set_cookie('theme', new_theme)
+    return response

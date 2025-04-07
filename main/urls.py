@@ -16,5 +16,6 @@ urlpatterns = [
     path('users/', include('users.urls', namespace='users')),
     path('request/', include('request.urls', namespace='request')),
     path('open-admin/', views.open_admin, name='admin'),
-    path('notifications/', include('notifications.urls', namespace='notifications'))
+    path('notifications/', include('notifications.urls', namespace='notifications')),
+        path('switch-theme/', views.switch_theme, name='switch_theme'),
 ]

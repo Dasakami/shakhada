@@ -8,8 +8,6 @@
     --ezy-theme-color-rgb: 13, 110, 253;
     --ezy-border-color: rgba(0, 0, 0, 0.3);
   
-    background-color: var(--bs-body-bg);
-    color: var(--bs-body-color);
     overflow: hidden;
     position: relative;
     padding: 60px 0;
@@ -68,7 +66,6 @@
     width: 7%;
     height: 2px;
     opacity: 0.75;
-    background-color: var(--bs-body-color);
   }
   
   .ezy__howitworks11_5SyB7pU4-line {
@@ -90,7 +87,6 @@
     position: absolute;
     bottom: -10px;
     left: -13px;
-    background-color: var(--bs-body-bg);
     font-size: 40px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -104,7 +100,7 @@
   .ezy__howitworks11_5SyB7pU4-count {
     position: absolute;
     top: 0;
-    background-color: var(--bs-body-bg);
+    background-color: #05151f;
     font-size: 16px;
     letter-spacing: 1px;
     font-weight: 300;

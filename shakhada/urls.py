@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.static import serve
 from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.conf.urls import handler404, handler500
 
@@ -25,11 +26,12 @@ handler404 = 'main.views.page_not_found'
 handler500 = 'main.views.server_error'
 handler403 = 'main.views.permission_denied'
 
-
 urlpatterns = [
-    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),  # Заменили url на re_path
-    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),  # Заменили url на re_path
-    path('suddenly/', admin.site.urls),
-    path('', include('main.urls'))
-]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # Обрабатываем статику
-
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),  # Обработка медиа
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),  # Обработка статичных файлов
+    path('suddenly/', admin.site.urls),  # Админка
+    *i18n_patterns(  # Добавляем мультиязычные пути
+        path('', include('main.urls')),  # Включаем urls для main приложения
+    ),
+    path('i18n/', include('django.conf.urls.i18n')),  # Это для обработки запросов для смены языка
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # Обрабатываем статику

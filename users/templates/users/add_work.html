@@ -1,13 +1,14 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
-<h2>Добавить работу</h2>
 <form method="post" enctype="multipart/form-data" class="add-job-form">
+    <h2>{% trans 'Добавить работу' %}</h2>
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Добавить</button>
+    <button type="submit">{% trans 'Добавить' %}</button>
+    <a href="{% url 'users:profile' username=request.user.username %}" class="add-job-back">{% trans 'Назад' %}</a>
 </form>
-<a href="{% url 'users:profile' username=request.user.username %}" class="add-job-back">Назад</a>
+
 
 <style>
     /* Основной контейнер формы */
@@ -15,7 +16,6 @@
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

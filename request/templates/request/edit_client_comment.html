@@ -1,6 +1,92 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Сохранить</button>
-</form>
-<a href="{% url 'request:client_request_detail' comment.client_request.id %}">Отмена</a>
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit comment | Shakhada</title>
+</head>
+<body {% if request.theme == 'dark' %} style=" background-color: #05151f;" {% else %} style="background-color: #fff;"{% endif %} >
+    <form method="post" class="comment-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+    
+    <a   class="cancel-link" href="{% url 'request:client_request_detail' comment.client_request.id %}">Отмена</a>
+
+
+    <style>
+        .comment-form {
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+    
+    
+        .comment-form input,
+        .comment-form textarea,
+        .comment-form select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+    
+        .comment-form input:focus,
+        .comment-form textarea:focus,
+        .comment-form select:focus {
+            border-color: #1976d2;
+            outline: none;
+        }
+    
+        .comment-form button[type="submit"] {
+            background-color: #1976d2;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        .comment-form button:hover {
+            background-color: #0d47a1;
+        }
+    
+        .cancel-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        .cancel-link:hover {
+            text-decoration: underline;
+            color: #0d47a1;
+        }
+    </style>
+
+{% if request.theme == 'dark' %}
+ <style>
+    .comment-form p {
+            color: white;
+            margin-bottom: 18px;
+        }
+ </style>
+ {% else %} 
+ <style>
+    .comment-form p {
+            margin-bottom: 18px;
+        }
+ </style>
+{% endif %} 
+    
+</body>
+</html>

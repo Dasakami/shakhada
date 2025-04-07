@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load i18n %}
 {% block content %}
 <div class="container">
     <div class="block-flex">
         <div class="block-item">
-            <h2>Для клиентов</h2>
-            <a href="{% url 'request:request_list' %}">Искать специалиста</a>
+            <h2>{% trans 'Для клиентов' %}</h2>
+            <a href="{% url 'request:request_list' %}">{% trans 'Искать специалиста' %}</a>
         </div>
         <div class="block-item">
-            <h2>Для специалистов</h2>
-            <a href="{% url 'request:client_request_list' %}">Искать клиента</a>
+            <h2>{% trans 'Для специалистов' %}</h2>
+            <a href="{% url 'request:client_request_list' %}">{% trans 'Искать клиента' %}</a>
         </div>
     </div>
 </div>

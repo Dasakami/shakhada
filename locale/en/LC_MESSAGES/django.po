@@ -1,0 +1,696 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-07 09:58+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\main\templates\main\faq.html:10 .\main\templates\main\home.html:175
+msgid "Часто задаваемые вопросы"
+msgstr "Frequently Asked Questions"
+
+#: .\main\templates\main\faq.html:14
+msgid "Как стать специалистом на вашем сайте?"
+msgstr "How can I become a specialist on your website?"
+
+#: .\main\templates\main\faq.html:15
+msgid ""
+"Чтобы стать специалистом, зарегистрируйтесь на сайте, заполните профиль, "
+"добавьте информацию о своих услугах, опыте и примеры работ. После этого вы "
+"сможете создавать заявки, на которые будут откликаться клиенты."
+msgstr ""
+"To become a specialist, register on the website, complete your profile, add "
+"information about your services, experience, and work examples. After that, "
+"you will be able to create requests that clients can respond to."
+
+#: .\main\templates\main\faq.html:19
+msgid "Как добавить работы в профиль?"
+msgstr "How do I add work examples to my profile?"
+
+#: .\main\templates\main\faq.html:20
+msgid "Для добавления работ перейдите в свой профиль и выберите опцию \\"
+msgstr ""
+
+#: .\main\templates\main\faq.html:24
+msgid "Как получить рейтинг?"
+msgstr "How do I get a rating?"
+
+#: .\main\templates\main\faq.html:25
+msgid ""
+"Рейтинг формируется на основе отзывов и оценок клиентов, с которыми вы "
+"работали. После завершения проекта клиенты могут оставить отзыв о вашей "
+"работе, что влияет на ваш рейтинг."
+msgstr ""
+"The rating is based on feedback and ratings from clients you've worked with. "
+"After completing a project, clients can leave a review that affects your "
+"rating."
+
+#: .\main\templates\main\faq.html:29
+msgid "Что делать, если я получил отрицательный отзыв?"
+msgstr "What should I do if I receive a negative review?"
+
+#: .\main\templates\main\faq.html:30
+msgid ""
+"В случае получения отрицательного отзыва, вы можете обсудить проблему с "
+"клиентом и попытаться разрешить ситуацию. Отзывы влияют на рейтинг, но если "
+"отзыв не соответствует действительности, вы можете обратиться в службу "
+"поддержки для разрешения ситуации."
+msgstr ""
+"If you receive a negative review, you can discuss the issue with the client "
+"and try to resolve it. Reviews affect your rating, but if a review is "
+"unfair, you can contact support for assistance."
+
+#: .\main\templates\main\faq.html:34
+msgid "Какие виды специалистов можно найти на платформе?"
+msgstr "What types of specialists can be found on the platform?"
+
+#: .\main\templates\main\faq.html:35
+msgid ""
+"На нашем сайте можно найти таких специалистов как SMM-менеджеры, "
+"маркетологи, таргетологи, мобилографы и видеографы. Мы стремимся "
+"предоставить широкий выбор профессионалов для различных задач."
+msgstr ""
+"Our platform features specialists such as SMM managers, marketers, targeting "
+"experts, mobile photographers, and videographers. We aim to offer a wide "
+"range of professionals for various tasks."
+
+#: .\main\templates\main\faq.html:39
+msgid "Как оставить заявку на нужного специалиста?"
+msgstr "How can I submit a request for a specialist?"
+
+#: .\main\templates\main\faq.html:40
+msgid ""
+"Для того чтобы оставить заявку, зарегистрируйтесь на сайте и создайте "
+"заявку, указав, какой специалист вам нужен и какие услуги вы ожидаете. В "
+"ответ вы получите отклики от подходящих специалистов."
+msgstr ""
+"To submit a request, register on the website and create a task specifying "
+"the type of specialist you need and the services you expect. You will "
+"receive responses from suitable professionals."
+
+#: .\main\templates\main\faq.html:44
+msgid "Как выбрать подходящего специалиста?"
+msgstr "How do I choose the right specialist?"
+
+#: .\main\templates\main\faq.html:45
+msgid ""
+"Для выбора специалиста вы можете ориентироваться на рейтинг, отзывы и "
+"портфолио. Мы также предоставляем фильтры для поиска по рейтингу, "
+"специализации и другим параметрам."
+msgstr ""
+"You can choose a specialist based on their rating, reviews, and portfolio. "
+"We also provide filters to search by rating, specialization, and other "
+"criteria."
+
+#: .\main\templates\main\faq.html:49
+msgid "Как я могу связаться с выбранным специалистом?"
+msgstr "How can I contact a selected specialist?"
+
+#: .\main\templates\main\faq.html:50
+msgid ""
+"После того как специалист откликнется на вашу заявку, вы сможете обменяться "
+"контактной информацией через личные сообщения на платформе и обсудить детали "
+"сотрудничества."
+msgstr ""
+"Once a specialist responds to your request, you can exchange contact "
+"information through private messages on the platform and discuss the details "
+"of your collaboration."
+
+#: .\main\templates\main\faq.html:54
+msgid "Какой процесс работы с клиентами на платформе?"
+msgstr "What is the workflow with clients on the platform?"
+
+#: .\main\templates\main\faq.html:55
+msgid ""
+"После того как вы оставите заявку, специалисты откликнутся на неё. Вы "
+"сможете выбрать подходящего кандидата, обсудить условия работы и затем "
+"сотрудничать через платформу, при необходимости обновляя статус заявки."
+msgstr ""
+"After you submit a request, specialists will respond to it. You can choose a "
+"suitable candidate, discuss terms of work, and then collaborate through the "
+"platform, updating the status of the request as needed."
+
+#: .\main\templates\main\faq.html:59
+msgid "Как работает фильтрация по рейтингу?"
+msgstr "How does rating-based filtering work?"
+
+#: .\main\templates\main\faq.html:60
+msgid ""
+"В разделе поиска вы можете отсортировать специалистов по их рейтингу, чтобы "
+"найти наиболее квалифицированных для вашей задачи. Рейтинг основывается на "
+"отзывах клиентов."
+msgstr ""
+"In the search section, you can sort specialists by their rating to find the "
+"most qualified ones for your task. The rating is based on client reviews."
+
+#: .\main\templates\main\faq.html:64
+msgid "Как я могу оставить отзыв о специалисте?"
+msgstr "How can I leave a review for a specialist?"
+
+#: .\main\templates\main\faq.html:65
+msgid ""
+"После завершения работы с любым специалистом вы получите возможность "
+"оставить отзыв на его профиле. Отзывы включают оценку качества работы и "
+"комментарии о сотрудничестве."
+msgstr ""
+"After working with any specialist, you will be able to leave a review on "
+"their profile. Reviews include a rating of the work quality and comments "
+"about the collaboration."
+
+#: .\main\templates\main\faq.html:69
+msgid "Что делать, если у меня возникли проблемы с использованием платформы?"
+msgstr "What should I do if I have issues using the platform?"
+
+#: .\main\templates\main\faq.html:70
+msgid ""
+"Если у вас возникли проблемы, пожалуйста, свяжитесь с нашей службой "
+"поддержки. Мы готовы помочь вам с любыми техническими или организационными "
+"вопросами."
+msgstr ""
+"If you experience any problems, please contact our support team. We're ready "
+"to assist you with any technical or organizational issues."
+
+#: .\main\templates\main\faq.html:74
+msgid "Могу ли я редактировать свою заявку после её отправки?"
+msgstr "Can I edit my request after submitting it?"
+
+#: .\main\templates\main\faq.html:75
+msgid ""
+"Да, вы можете редактировать заявку до тех пор, пока не начнётся активное "
+"взаимодействие с откликнувшимися специалистами. После этого изменения будут "
+"невозможны."
+msgstr ""
+"Yes, you can edit your request until active interaction with responding "
+"specialists begins. After that, changes will no longer be possible."
+
+#: .\main\templates\main\faq.html:79
+msgid "Какие способы оплаты доступны для клиентов?"
+msgstr "What payment methods are available for clients?"
+
+#: .\main\templates\main\faq.html:80
+msgid ""
+"Мы поддерживаем различные способы оплаты, включая банковские карты, "
+"электронные кошельки и другие популярные методы."
+msgstr ""
+"We support various payment methods including bank cards, e-wallets, and "
+"other popular options."
+
+#: .\main\templates\main\faq.html:84
+msgid "Как я могу удалить свою заявку или профиль?"
+msgstr "How can I delete my request or profile?"
+
+#: .\main\templates\main\faq.html:85
+msgid ""
+"Вы можете удалить заявку через ваш личный кабинет, а профиль можно удалить "
+"через настройки аккаунта. Обратите внимание, что это действие необратимо."
+msgstr ""
+"You can delete your request from your personal account, and delete your "
+"profile in the account settings. Please note that this action is "
+"irreversible."
+
+#: .\main\templates\main\home.html:13
+msgid "Найди и найм лучших специалистов в SMM, фото, видео и маркетинге!"
+msgstr ""
+"Find and hire the best specialists in SMM, photography, video, and marketing!"
+
+#: .\main\templates\main\home.html:15
+msgid ""
+"Ищешь опытного специалиста для продвижения бизнеса? Или ты сам — SMM-"
+"менеджер, видеограф, маркетолог и хочешь получать заказы? "
+msgstr ""
+"Looking for an experienced specialist to promote your business? Or are you "
+"an SMM manager, videographer, marketer, and want to receive orders?"
+
+#: .\main\templates\main\home.html:22 .\templates\base.html:43
+msgid "Поиск заявок..."
+msgstr "Job search..."
+
+#: .\main\templates\main\home.html:39
+msgid "Откликов каждый месяц"
+msgstr "Feedback every month"
+
+#: .\main\templates\main\home.html:43
+msgid "Зарегистрированных специалистов"
+msgstr "Registered specialists"
+
+#: .\main\templates\main\home.html:47
+msgid " Успешных проектов"
+msgstr "Successful projects"
+
+#: .\main\templates\main\home.html:51
+msgid "Клиентов находят исполнителя за 24 часа"
+msgstr "Clients are found by the contractor in 24 hours"
+
+#: .\main\templates\main\home.html:63
+msgid "Команда основателей"
+msgstr "The founding team"
+
+#: .\main\templates\main\home.html:64
+msgid "Мы не идеальны, но зато смешные. А сайт вроде работает!"
+msgstr ""
+"We're not perfect, but we're funny. And the website seems to be working!"
+
+#: .\main\templates\main\home.html:177
+msgid ""
+"Здесь вы найдете ответы на самые популярные вопросы о работе нашей "
+"платформы. Если не нашли нужную информацию, свяжитесь с нами!"
+msgstr ""
+"Here you will find answers to the most popular questions about the work of "
+"our platform. If you haven't found the information you need, please contact "
+"us!"
+
+#: .\main\templates\main\home.html:191
+msgid "Как работает платформа?"
+msgstr "How does the platform work?"
+
+#: .\main\templates\main\home.html:195
+msgid ""
+"Вы можете оставить заявку на услугу или выбрать специалиста из списка. После "
+"этого начинается общение и обсуждение деталей."
+msgstr ""
+"You can submit a request for the service or select a specialist from the "
+"list. After that, communication and discussion of details begin."
+
+#: .\main\templates\main\home.html:202
+msgid "Сколько стоит использование платформы?"
+msgstr "How much does it cost to use the platform?"
+
+#: .\main\templates\main\home.html:206
+msgid ""
+"Размещение заявок и поиск специалистов – бесплатно. Возможны дополнительные "
+"платные функции для продвижения."
+msgstr ""
+"The placement of applications and the search for specialists is free of "
+"charge. Additional paid features for promotion are possible."
+
+#: .\main\templates\main\home.html:213
+msgid "Какие специалисты здесь работают?"
+msgstr "What kind of specialists work here?"
+
+#: .\main\templates\main\home.html:217
+msgid ""
+"На платформе можно найти SMM-специалистов, маркетологов, видеографов, "
+"мобилографов, копирайтеров и других."
+msgstr ""
+"On the platform, you can find SMM specialists, marketers, videographers, "
+"mobilographers, copywriters, and others."
+
+#: .\main\templates\main\home.html:224
+msgid "Как убедиться в надежности специалиста?"
+msgstr "How can I verify the reliability of a specialist?"
+
+#: .\main\templates\main\home.html:228
+msgid ""
+"Вы можете просмотреть портфолио, отзывы и рейтинг специалиста перед тем, как "
+"начать сотрудничество."
+msgstr ""
+"You can view the portfolio, reviews, and rating of a specialist before "
+"starting a collaboration."
+
+#: .\main\templates\main\home.html:235
+msgid "Что делать, если возникли проблемы с заказом?"
+msgstr "What should I do if there are problems with the order?"
+
+#: .\main\templates\main\home.html:239
+msgid "Свяжитесь с нашей поддержкой – мы поможем разобраться в ситуации."
+msgstr ""
+"Contact our support team and we will help you figure out the situation."
+
+#: .\main\templates\main\how_it_works.html:14 .\templates\base.html:71
+msgid "Как это работает?"
+msgstr "How does it work?"
+
+#: .\main\templates\main\how_it_works.html:21
+msgid "Конец"
+msgstr "END"
+
+#: .\main\templates\main\how_it_works.html:28
+#: .\main\templates\main\how_it_works.html:46
+#: .\main\templates\main\how_it_works.html:64
+msgid "Шаг"
+msgstr "Step"
+
+#: .\main\templates\main\how_it_works.html:31
+msgid "Получите онлайн-предложение "
+msgstr "Get an online offer"
+
+#: .\main\templates\main\how_it_works.html:33
+msgid ""
+" \n"
+"                    Заполните простую форму на нашем сайте с описанием ваших "
+"потребностей. Укажите все детали — что именно вам нужно, какие есть "
+"предпочтения по срокам, бюджету и условиям работы. Специалисты, "
+"зарегистрированные на нашей платформе, быстро откликнутся с предложениями, и "
+"вы сможете выбрать наиболее подходящее для себя. \n"
+"                    "
+msgstr ""
+"Fill out a simple form on our website with a description of your needs. "
+"Specify all the details — what exactly you need, what are your preferences "
+"in terms of deadlines, budget and working conditions. The specialists "
+"registered on our platform will quickly respond with suggestions, and you "
+"will be able to choose the most suitable one for yourself."
+
+#: .\main\templates\main\how_it_works.html:49
+msgid "Получите услуги бесплатно"
+msgstr "Get these services for free"
+
+#: .\main\templates\main\how_it_works.html:51
+msgid ""
+" \n"
+"                    После того как вы выбрали подходящего специалиста и "
+"договорились о всех условиях, специалист выполнит работу в соответствии с "
+"вашим запросом. Вы будете точно знать, что получите нужную услугу без "
+"скрытых затрат или дополнительных комиссий. Платформа обеспечит прозрачность "
+"всех этапов, а все коммуникации и материалы будут обмениваться удобно через "
+"личный кабинет.\n"
+"                    "
+msgstr ""
+"After you have selected the right specialist and agreed on all the "
+"conditions, the specialist will perform the work according to your request. "
+"You will know for sure that you will receive the right service without "
+"hidden costs or additional fees. The platform will ensure transparency of "
+"all stages, and all communications and materials will be exchanged "
+"conveniently through a personal account."
+
+#: .\main\templates\main\how_it_works.html:67
+msgid "Получите оплату быстро и безопасно"
+msgstr "Get paid quickly and safely"
+
+#: .\main\templates\main\how_it_works.html:69
+msgid ""
+" \n"
+"                    Когда работа будет завершена, вы сможете произвести "
+"оплату через нашу платформу. Мы гарантируем быстрые и безопасные расчёты для "
+"обеих сторон. Специалисты могут быть уверены в том, что получат свои "
+"средства, а клиенты — что оплата будет производиться только после выполнения "
+"всех условий соглашения.\n"
+"                    "
+msgstr ""
+"When the work is completed, you will be able to make a payment through our "
+"platform. We guarantee fast and secure payments for both parties. "
+"Specialists can be sure that they will receive their funds, and customers "
+"can be sure that payment will be made only after all the terms of the "
+"agreement have been fulfilled."
+
+#: .\main\templates\main\work.html:8
+msgid "Для клиентов"
+msgstr "For clients"
+
+#: .\main\templates\main\work.html:9
+msgid "Искать специалиста"
+msgstr "Looking for a specialist"
+
+#: .\main\templates\main\work.html:12
+msgid "Для специалистов"
+msgstr "For specialists"
+
+#: .\main\templates\main\work.html:13
+msgid "Искать клиента"
+msgstr "Looking for a client"
+
+#: .\notifications\templates\notifications\notifications.html:7
+#: .\notifications\templates\notifications\notifications.html:15
+#: .\templates\base.html:54
+msgid "Уведомления"
+msgstr "Notifications"
+
+#: .\notifications\templates\notifications\notifications.html:22
+msgid "Отметить как прочитанное"
+msgstr "Mark as read"
+
+#: .\notifications\templates\notifications\notifications.html:25
+msgid "Нет уведомлений"
+msgstr "No notifications"
+
+#: .\request\templates\request\create_client_request.html:6
+#, fuzzy
+#| msgid "Поиск заявок..."
+msgid "Создать заявку"
+msgstr "Job search..."
+
+#: .\templates\base.html:10 .\users\templates\users\feedback_success.html:7
+msgid "Главная страница"
+msgstr "Main page"
+
+#: .\templates\base.html:48
+msgid "Главная"
+msgstr "Main"
+
+#: .\templates\base.html:49 .\templates\base.html:161
+msgid "Вакансии"
+msgstr "Job openings"
+
+#: .\templates\base.html:50
+msgid "Избранные"
+msgstr "Favorites"
+
+#: .\templates\base.html:59
+msgid "Помощь"
+msgstr "Help"
+
+#: .\templates\base.html:74
+msgid "Вопрос & Ответ"
+msgstr "Question & Answer"
+
+#: .\templates\base.html:77 .\users\templates\users\send_feedback.html:20
+msgid "Обратная связь"
+msgstr "Feedback"
+
+#: .\templates\base.html:95
+msgid "Зарегистрироваться"
+msgstr "Sign in"
+
+#: .\templates\base.html:100 .\users\templates\users\login.html:195
+msgid "Войти"
+msgstr "Login"
+
+#: .\templates\base.html:143
+msgid "Политика"
+msgstr "Politics"
+
+#: .\templates\base.html:151
+msgid "Соц.сеть"
+msgstr "Social network"
+
+#: .\templates\base.html:159
+msgid "Разделы"
+msgstr "Sections"
+
+#: .\templates\base.html:162
+msgid "Тех.поддержка"
+msgstr "Technical support"
+
+#: .\templates\base.html:172
+msgid "Сменить язык"
+msgstr "Change the language"
+
+#: .\users\templates\users\add_work.html:5
+msgid "Добавить работу"
+msgstr "Add work"
+
+#: .\users\templates\users\add_work.html:8
+msgid "Добавить"
+msgstr "Add"
+
+#: .\users\templates\users\add_work.html:9
+#: .\users\templates\users\edit_profile.html:10
+msgid "Назад"
+msgstr "Back"
+
+#: .\users\templates\users\change_email.html:5
+msgid "Сменить электронную почту"
+msgstr "Change email"
+
+#: .\users\templates\users\change_email.html:9
+#: .\users\templates\users\change_username.html:10
+#: .\users\templates\users\edit_profile.html:8
+msgid "Сохранить"
+msgstr "Save"
+
+#: .\users\templates\users\change_username.html:6
+#, fuzzy
+#| msgid "Имя пользователя"
+msgid "Сменить имя пользователя"
+msgstr "Username"
+
+#: .\users\templates\users\edit_profile.html:4
+msgid "Редактировать профиль"
+msgstr "Edit profile"
+
+#: .\users\templates\users\feedback_success.html:5
+msgid "Спасибо за ваше обращение!"
+msgstr "Thank you for your message!"
+
+#: .\users\templates\users\feedback_success.html:6
+msgid "Мы получили ваше сообщение и обязательно его рассмотрим."
+msgstr "We have received your message and will definitely review it."
+
+#: .\users\templates\users\login.html:219
+msgid "Авторизация"
+msgstr "Authorization"
+
+#: .\users\templates\users\login.html:224
+#: .\users\templates\users\register.html:116
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: .\users\templates\users\login.html:228
+#: .\users\templates\users\register.html:145
+msgid "Пароль"
+msgstr "Password"
+
+#: .\users\templates\users\login.html:232
+msgid "Забыли пароль?"
+msgstr "Forgot your password?"
+
+#: .\users\templates\users\login.html:233
+msgid "Авторизоваться"
+msgstr "Authorization"
+
+#: .\users\templates\users\login.html:249
+msgid "Войти через ВКонтакте"
+msgstr "Log in via Vkontakte"
+
+#: .\users\templates\users\login.html:252
+msgid "Нужен аккаунт? Зарегистрируйся!"
+msgstr "Do you need an account? Sign up!"
+
+#: .\users\templates\users\maintenance.html:9
+msgid "Технические работы"
+msgstr "Technical work"
+
+#: .\users\templates\users\maintenance.html:52
+msgid "Мы проводим технические работы"
+msgstr "We are carrying out technical work"
+
+#: .\users\templates\users\maintenance.html:53
+msgid ""
+"Извините за временные неудобства. Наши специалисты уже работают над "
+"улучшением сервиса. Мы постараемся завершить работы как можно быстрее."
+msgstr "Sorry for the temporary inconvenience. Our specialists are already working on improving the service. We will try to complete the work as soon as possible."
+
+#: .\users\templates\users\maintenance.html:54
+msgid ""
+"Пожалуйста, попробуйте посетить наш сайт позже. Благодарим за понимание!"
+msgstr "Please try to visit our website later. Thank you for your understanding!"
+
+#: .\users\templates\users\password_change.html:5
+msgid "Изменение пароля"
+msgstr "Change password"
+
+#: .\users\templates\users\password_change.html:79
+msgid "Изменить пароль"
+msgstr "Change password"
+
+#: .\users\templates\users\password_change_done.html:4
+msgid "Пароль успешно изменен!"
+msgstr "The password has been successfully changed!"
+
+#: .\users\templates\users\password_reset_done.html:6
+msgid "Password Reset"
+msgstr ""
+
+#: .\users\templates\users\password_reset_done.html:9
+msgid ""
+"We’ve emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+
+#: .\users\templates\users\password_reset_done.html:13
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:8
+msgid "Your username, in case you’ve forgotten:"
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: .\users\templates\users\register.html:92
+msgid "Имя"
+msgstr "Name"
+
+#: .\users\templates\users\register.html:104
+msgid "Фамилия"
+msgstr "Surname"
+
+#: .\users\templates\users\register.html:127
+msgid "Выберите роль"
+msgstr "Select role"
+
+#: .\users\templates\users\register.html:133
+msgid "Электронная почта"
+msgstr "Email"
+
+#: .\users\templates\users\register.html:157
+msgid "Подтверждение пароля"
+msgstr "Password Confirmation"
+
+#: .\users\templates\users\register.html:168
+msgid "Создать аккаунт"
+msgstr "Create account"
+
+#: .\users\templates\users\register.html:172
+msgid "Уже есть аккаунт? Авторизоваться"
+msgstr "Do you already have an account? Log in"
+
+#: .\users\templates\users\register_done.html:7
+msgid "Регистрация прошла успешно!"
+msgstr "Registration was successful!"
+
+#: .\users\templates\users\register_done.html:8
+msgid "Спасибо за регистрацию. Теперь вы можете войти в свою учетную запись."
+msgstr "Thanks for registering. You can now log in to your account."
+
+#: .\users\templates\users\send_feedback.html:25
+msgid "Отправить"
+msgstr "Send"
+
+#~ msgid ""
+#~ "Для добавления работ перейдите в свой профиль и выберите опцию 'Добавить "
+#~ "работу'. Здесь вы можете загрузить изображения, видеоролики или ссылки на "
+#~ "выполненные проекты. Это поможет потенциальным клиентам оценить ваши "
+#~ "навыки."
+#~ msgstr ""
+#~ "To add jobs, go to your profile and select the 'Add Job' option. Here you "
+#~ "can upload images, videos, or links to completed projects. This will help "
+#~ "potential clients evaluate your skills."
+
+#~ msgid "Светлая тема"
+#~ msgstr "Light theme"
+
+#~ msgid "Тёмная тема"
+#~ msgstr "Dark theme"

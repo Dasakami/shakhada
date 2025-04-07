@@ -13,18 +13,19 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import CustomUserCreationForm
+from django.contrib.auth.backends import ModelBackend
 
 def register(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Вызов с request
-            return redirect('home')  # Замени на свою главную страницу
+            user.backend = 'django.contrib.auth.backends.ModelBackend'  # Явно указываем backend
+            login(request, user)
+            return redirect('users:register_done')
     else:
         form = CustomUserCreationForm()
     return render(request, 'users/register.html', {'form': form})
-
 
 def login_view(request):
     if request.method == 'POST':
@@ -38,8 +39,9 @@ def login_view(request):
                 return HttpResponsePermanentRedirect('/')
     else:
         form = UserLoginForm()
-    context = {'form': form}
+    context = {'form':form}
     return render(request, 'users/login.html', context)
+
 
 
 def logout(request):
@@ -190,8 +192,8 @@ def change_email(request):
     if request.method == 'POST':
         form = UserEmailChangeForm(request.POST, instance=request.user)
         if form.is_valid():
-            form.save()
-            return redirect('users:profile')  # или куда тебе нужно
+            user = form.save()
+            return redirect('users:profile', username=user.username)  # или куда тебе нужно
     else:
         form = UserEmailChangeForm(instance=request.user)
 
@@ -203,8 +205,8 @@ def change_username(request):
     if request.method == 'POST':
         form = UserUsernameChangeForm(request.POST, instance=request.user)
         if form.is_valid():
-            form.save()
-            return redirect('users:profile')  # или другой путь
+            user = form.save()
+            return redirect('users:profile', username=user.username)  # Передаём username
     else:
         form = UserUsernameChangeForm(instance=request.user)
 

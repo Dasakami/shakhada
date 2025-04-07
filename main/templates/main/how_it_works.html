@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'vendor/css/how_it_works.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/css/how_it_work.css' %}">
 {% endblock %}
 {% block title %} Shakhada {% endblock %}
 {% block content %}
@@ -10,26 +11,28 @@
       <div class="row">
         <div class="col-12">
           <div class="d-flex flex-column align-items-center text-center">
-            <h2 class="ezy__howitworks11_5SyB7pU4-heading">Как это работает?</h2>
+            <h2 class="ezy__howitworks11_5SyB7pU4-heading">{% trans 'Как это работает?' %}</h2>
             <hr class="ezy__howitworks11_5SyB7pU4-divider" />
           </div>
         </div>
         <div class="row position-relative mt-5 ps-5 ps-md-0">
           <!-- verticle line -->
-          <div class="ezy__howitworks11_5SyB7pU4-line">
-            <h4 class="ezy__howitworks11_5SyB7pU4-end">Конец</h4>
+          <div class="ezy__howitworks11_5SyB7pU4-line" >
+            <h4 class="ezy__howitworks11_5SyB7pU4-end" {% if request.theme == 'dark' %} style=" background-color: #05151f;" {% else %} style="background-color: #fff;"{% endif %}  >{% trans 'Конец' %}</h4>
           </div>
           <div class="col-12">
             <div class="row">
               <div class="col-12 col-md-6">
                 <div class="ezy__howitworks11_5SyB7pU4-card position-relative p-4 p-md-5">
-                  <h5 class="ezy__howitworks11_5SyB7pU4-count ezy__howitworks11_5SyB7pU4-count-one text-center">
-                    Шаг <br />
+                  <h5 class="ezy__howitworks11_5SyB7pU4-count ezy__howitworks11_5SyB7pU4-count-one text-center" {% if request.theme == 'dark' %} style=" background-color: #05151f;" {% else %} style="background-color: #fff;"{% endif %} >
+                    {% trans 'Шаг' %} <br />
                     <span>O1</span>
                   </h5>
-                  <h4 class="ezy__howitworks11_5SyB7pU4-title fw-bold mb-3">Получите онлайн-предложение</h4>
+                  <h4 class="ezy__howitworks11_5SyB7pU4-title fw-bold mb-3">{% trans 'Получите онлайн-предложение ' %}</h4>
                   <p class="opacity-75">
-                    Заполните простую форму на нашем сайте с описанием ваших потребностей. Укажите все детали — что именно вам нужно, какие есть предпочтения по срокам, бюджету и условиям работы. Специалисты, зарегистрированные на нашей платформе, быстро откликнутся с предложениями, и вы сможете выбрать наиболее подходящее для себя.
+                    {% blocktrans %} 
+                    Заполните простую форму на нашем сайте с описанием ваших потребностей. Укажите все детали — что именно вам нужно, какие есть предпочтения по срокам, бюджету и условиям работы. Специалисты, зарегистрированные на нашей платформе, быстро откликнутся с предложениями, и вы сможете выбрать наиболее подходящее для себя. 
+                    {% endblocktrans %}
                   </p>
                 </div>
               </div>
@@ -39,13 +42,15 @@
             <div class="row justify-content-end">
               <div class="col-12 col-md-6">
                 <div class="ezy__howitworks11_5SyB7pU4-card position-relative p-4 p-md-5 pt-3 pt-md-3">
-                  <h5 class="ezy__howitworks11_5SyB7pU4-count ezy__howitworks11_5SyB7pU4-count-two text-center">
-                    Шаг <br />
+                  <h5 class="ezy__howitworks11_5SyB7pU4-count ezy__howitworks11_5SyB7pU4-count-two text-center" {% if request.theme == 'dark' %} style=" background-color: #05151f;" {% else %} style="background-color: #fff;"{% endif %} >
+                    {% trans 'Шаг' %} <br />
                     <span>O2</span>
                   </h5>
-                  <h4 class="ezy__howitworks11_5SyB7pU4-title fw-bold mb-3">Получите услуги бесплатно</h4>
+                  <h4 class="ezy__howitworks11_5SyB7pU4-title fw-bold mb-3">{% trans 'Получите услуги бесплатно' %}</h4>
                   <p class="opacity-75">
+                    {% blocktrans %} 
                     После того как вы выбрали подходящего специалиста и договорились о всех условиях, специалист выполнит работу в соответствии с вашим запросом. Вы будете точно знать, что получите нужную услугу без скрытых затрат или дополнительных комиссий. Платформа обеспечит прозрачность всех этапов, а все коммуникации и материалы будут обмениваться удобно через личный кабинет.
+                    {% endblocktrans %}
                   </p>
                 </div>
               </div>
@@ -55,13 +60,15 @@
             <div class="row">
               <div class="col-12 col-md-6">
                 <div class="ezy__howitworks11_5SyB7pU4-card position-relative p-4 p-md-5 pt-3 pt-md-3">
-                  <h5 class="ezy__howitworks11_5SyB7pU4-count ezy__howitworks11_5SyB7pU4-count-three text-center">
-                    Шаг <br />
+                  <h5 class="ezy__howitworks11_5SyB7pU4-count ezy__howitworks11_5SyB7pU4-count-three text-center" {% if request.theme == 'dark' %} style=" background-color: #05151f;" {% else %} style="background-color: #fff;"{% endif %} >
+                    {% trans 'Шаг' %} <br />
                     <span>O3</span>
                   </h5>
-                  <h4 class="ezy__howitworks11_5SyB7pU4-title fw-bold mb-3">Получите оплату быстро и безопасно</h4>
+                  <h4 class="ezy__howitworks11_5SyB7pU4-title fw-bold mb-3">{% trans 'Получите оплату быстро и безопасно' %}</h4>
                   <p class="opacity-75">
+                    {% blocktrans %} 
                     Когда работа будет завершена, вы сможете произвести оплату через нашу платформу. Мы гарантируем быстрые и безопасные расчёты для обеих сторон. Специалисты могут быть уверены в том, что получат свои средства, а клиенты — что оплата будет производиться только после выполнения всех условий соглашения.
+                    {% endblocktrans %}
                   </p>
                 </div>
               </div>

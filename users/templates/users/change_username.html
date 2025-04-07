@@ -1,13 +1,13 @@
 <!-- templates/users/change_username.html -->
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block content %}
   <div class="container">
-    <h2>Смена Username</h2>
+    <h2>{% trans 'Сменить имя пользователя' %}</h2>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit" class="btn btn-primary">Сохранить</button>
+      <button type="submit" class="btn btn-primary">{% trans 'Сохранить' %}</button>
     </form>
   </div>
 {% endblock %}
