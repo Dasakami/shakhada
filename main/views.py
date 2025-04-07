@@ -41,3 +41,7 @@ def switch_theme(request):
     new_theme = 'dark' if current == 'light' else 'light'
     response.set_cookie('theme', new_theme)
     return response
+
+
+def redirect_to_lang(request):
+    return redirect('/ru/')

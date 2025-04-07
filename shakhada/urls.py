@@ -1,19 +1,3 @@
-"""
-URL configuration for shakhada project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.static import serve
@@ -21,17 +5,19 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.conf.urls import handler404, handler500
+from main.views import redirect_to_lang  # добавили
 
 handler404 = 'main.views.page_not_found'
 handler500 = 'main.views.server_error'
 handler403 = 'main.views.permission_denied'
 
 urlpatterns = [
-    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),  # Обработка медиа
-    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),  # Обработка статичных файлов
-    path('suddenly/', admin.site.urls),  # Админка
-    *i18n_patterns(  # Добавляем мультиязычные пути
-        path('', include('main.urls')),  # Включаем urls для main приложения
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
+    path('suddenly/', admin.site.urls),
+    path('', redirect_to_lang),  # редирект с / на /ru/
+    *i18n_patterns(
+        path('', include('main.urls')),
     ),
-    path('i18n/', include('django.conf.urls.i18n')),  # Это для обработки запросов для смены языка
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # Обрабатываем статику
+    path('i18n/', include('django.conf.urls.i18n')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
