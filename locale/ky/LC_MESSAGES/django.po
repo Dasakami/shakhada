@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-08 14:52+0600\n"
+"POT-Creation-Date: 2025-04-08 14:54+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,27 +16,27 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: .\main\templates\404.html:47
 msgid "Страница недоступна"
-msgstr "The page is unavailable"
+msgstr "Барак жеткиликтүү эмес"
 
 #: .\main\templates\500.html:140
 msgid ""
 "К сожалению, что-то пошло не так. Мы работаем над этим и вскоре исправим. "
 "Пожалуйста, повторите попытку позже."
 msgstr ""
-"Oops, something went wrong. We're working on it and will fix it shortly. "
-"Please try again later."
+"Тилекке каршы, бир нерсе туура эмес болуп калды. Биз бул көйгөйдү чечип "
+"жатабыз, жакында оңдолот. Кайра аракет кылыңызчы."
 
 #: .\main\templates\main\faq.html:10 .\main\templates\main\home.html:175
 msgid "Часто задаваемые вопросы"
-msgstr "Frequently Asked Questions"
+msgstr "Көп берилүүчү суроолор"
 
 #: .\main\templates\main\faq.html:14
 msgid "Как стать специалистом на вашем сайте?"
-msgstr "How can I become a specialist on your website?"
+msgstr "Кантип сиздин сайттан адис боло алам?"
 
 #: .\main\templates\main\faq.html:15
 msgid ""
@@ -44,21 +44,21 @@ msgid ""
 "добавьте информацию о своих услугах, опыте и примеры работ. После этого вы "
 "сможете создавать заявки, на которые будут откликаться клиенты."
 msgstr ""
-"To become a specialist, register on the website, complete your profile, add "
-"information about your services, experience, and work examples. After that, "
-"you will be able to create requests that clients can respond to."
+"Адис болуу үчүн сайтка катталып, профилиңизди толтуруңуз, кызматтарыңыз, "
+"тажрыйбаңыз жана иш үлгүлөрүңүз тууралуу маалымат кошуңуз. Анан кийин сизге "
+"кардарлар жооп берген билдирүүлөрдү түзө аласыз."
 
 #: .\main\templates\main\faq.html:19
 msgid "Как добавить работы в профиль?"
-msgstr "How do I add work examples to my profile?"
+msgstr "Профилге иштерди кантип кошсо болот?"
 
 #: .\main\templates\main\faq.html:20
 msgid "Для добавления работ перейдите в свой профиль и выберите опцию \\"
-msgstr ""
+msgstr "Иштерди кошуу үчүн профилиңизге кирип, \"кошуу\" опциясын тандаңыз \\"
 
 #: .\main\templates\main\faq.html:24
 msgid "Как получить рейтинг?"
-msgstr "How do I get a rating?"
+msgstr "Рейтингди кантип алсам болот?"
 
 #: .\main\templates\main\faq.html:25
 msgid ""
@@ -66,13 +66,13 @@ msgid ""
 "работали. После завершения проекта клиенты могут оставить отзыв о вашей "
 "работе, что влияет на ваш рейтинг."
 msgstr ""
-"The rating is based on feedback and ratings from clients you've worked with. "
-"After completing a project, clients can leave a review that affects your "
-"rating."
+"Рейтинг сиз иштеген кардарлардын пикирлерине жана бааларына жараша түзүлөт. "
+"Долбоор бүткөндөн кийин кардарлар сиздин ишиңиз тууралуу пикир калтыра "
+"алышат, бул сиздин рейтингиңизге таасир этет."
 
 #: .\main\templates\main\faq.html:29
 msgid "Что делать, если я получил отрицательный отзыв?"
-msgstr "What should I do if I receive a negative review?"
+msgstr "Эгер терс пикир алсам эмне кылышым керек?"
 
 #: .\main\templates\main\faq.html:30
 msgid ""
@@ -81,13 +81,13 @@ msgid ""
 "отзыв не соответствует действительности, вы можете обратиться в службу "
 "поддержки для разрешения ситуации."
 msgstr ""
-"If you receive a negative review, you can discuss the issue with the client "
-"and try to resolve it. Reviews affect your rating, but if a review is "
-"unfair, you can contact support for assistance."
+"Эгер терс пикир алсаңыз, кардар менен байланышып, көйгөйдү талкуулап чечүүгө "
+"аракет кылыңыз. Пикирлер рейтингге таасир этет, бирок эгер пикир чындыкка "
+"дал келбесе, колдоо кызматына кайрылып маселе чечсе болот."
 
 #: .\main\templates\main\faq.html:34
 msgid "Какие виды специалистов можно найти на платформе?"
-msgstr "What types of specialists can be found on the platform?"
+msgstr "Бул платформадан кандай адистерди таба алам?"
 
 #: .\main\templates\main\faq.html:35
 msgid ""
@@ -95,13 +95,13 @@ msgid ""
 "маркетологи, таргетологи, мобилографы и видеографы. Мы стремимся "
 "предоставить широкий выбор профессионалов для различных задач."
 msgstr ""
-"Our platform features specialists such as SMM managers, marketers, targeting "
-"experts, mobile photographers, and videographers. We aim to offer a wide "
-"range of professionals for various tasks."
+"Биздин сайттан SMM-менеджерлерди, маркетологдорду, таргетологдорду, "
+"мобилографтарды жана видеографтарды таба аласыз. Биз ар кандай тапшырмалар "
+"үчүн кесипкөй адистердин кеңири тандоосун сунуштайбыз."
 
 #: .\main\templates\main\faq.html:39
 msgid "Как оставить заявку на нужного специалиста?"
-msgstr "How can I submit a request for a specialist?"
+msgstr "Керектүү адиске кантип өтүнмө калтырсам болот?"
 
 #: .\main\templates\main\faq.html:40
 msgid ""
@@ -109,13 +109,13 @@ msgid ""
 "заявку, указав, какой специалист вам нужен и какие услуги вы ожидаете. В "
 "ответ вы получите отклики от подходящих специалистов."
 msgstr ""
-"To submit a request, register on the website and create a task specifying "
-"the type of specialist you need and the services you expect. You will "
-"receive responses from suitable professionals."
+"Өтүнмө калтыруу үчүн сайтка катталып, сизге керек болгон адисти жана күткөн "
+"кызматтарыңызды көрсөтүп, өтүнмө түзүңүз. Ошондо ылайыктуу адистерден жооп "
+"аласыз."
 
 #: .\main\templates\main\faq.html:44
 msgid "Как выбрать подходящего специалиста?"
-msgstr "How do I choose the right specialist?"
+msgstr "Туура адисти кантип тандоо керек?"
 
 #: .\main\templates\main\faq.html:45
 msgid ""
@@ -123,13 +123,13 @@ msgid ""
 "портфолио. Мы также предоставляем фильтры для поиска по рейтингу, "
 "специализации и другим параметрам."
 msgstr ""
-"You can choose a specialist based on their rating, reviews, and portfolio. "
-"We also provide filters to search by rating, specialization, and other "
-"criteria."
+"Адисти тандоо үчүн анын рейтинги, пикирлери жана портфолиосуна көңүл "
+"буруңуз. Мындан тышкары, биз рейтинг, адистик жана башка параметрлер боюнча "
+"издөөгө жардам берген фильтрлерди сунуштайбыз."
 
 #: .\main\templates\main\faq.html:49
 msgid "Как я могу связаться с выбранным специалистом?"
-msgstr "How can I contact a selected specialist?"
+msgstr "Тандалган адис менен кантип байланышсам болот?"
 
 #: .\main\templates\main\faq.html:50
 msgid ""
@@ -137,13 +137,13 @@ msgid ""
 "контактной информацией через личные сообщения на платформе и обсудить детали "
 "сотрудничества."
 msgstr ""
-"Once a specialist responds to your request, you can exchange contact "
-"information through private messages on the platform and discuss the details "
-"of your collaboration."
+"Адис сиздин өтүнмөгө жооп бергенден кийин, сиз платформада жеке билдирүүлөр "
+"аркылуу байланыш маалыматтарыңыз менен алмашып, жана кызматташуу тууралуу "
+"деталдарды талкуулай аласыз."
 
 #: .\main\templates\main\faq.html:54
 msgid "Какой процесс работы с клиентами на платформе?"
-msgstr "What is the workflow with clients on the platform?"
+msgstr "Платформада кардарлар менен иштөө процесси кандай?"
 
 #: .\main\templates\main\faq.html:55
 msgid ""
@@ -151,13 +151,13 @@ msgid ""
 "сможете выбрать подходящего кандидата, обсудить условия работы и затем "
 "сотрудничать через платформу, при необходимости обновляя статус заявки."
 msgstr ""
-"After you submit a request, specialists will respond to it. You can choose a "
-"suitable candidate, discuss terms of work, and then collaborate through the "
-"platform, updating the status of the request as needed."
+"Өтүнмө калтырган соң адистер жооп берип, сизге ылайыктуу талапкерди тандап, "
+"иштөө шарттарын талкуулап, андан кийин платформа аркылуу кызматташууга "
+"баштаңыз, керектүү болсо өтүнмө статусун жаңыртууга болот."
 
 #: .\main\templates\main\faq.html:59
 msgid "Как работает фильтрация по рейтингу?"
-msgstr "How does rating-based filtering work?"
+msgstr "Рейтинг боюнча фильтрация кантип иштейт?"
 
 #: .\main\templates\main\faq.html:60
 msgid ""
@@ -165,12 +165,13 @@ msgid ""
 "найти наиболее квалифицированных для вашей задачи. Рейтинг основывается на "
 "отзывах клиентов."
 msgstr ""
-"In the search section, you can sort specialists by their rating to find the "
-"most qualified ones for your task. The rating is based on client reviews."
+"Издөө бөлүмүндө адистерди рейтингине жараша сорттой аласыз, ошондо сиздин "
+"тапшырмаңыз үчүн эң квалификациялуу адистерди таба аласыз. Рейтинг "
+"кардарлардын пикирлерине негизделет."
 
 #: .\main\templates\main\faq.html:64
 msgid "Как я могу оставить отзыв о специалисте?"
-msgstr "How can I leave a review for a specialist?"
+msgstr "Адис тууралуу пикирди кантип калтырсам болот?"
 
 #: .\main\templates\main\faq.html:65
 msgid ""
@@ -178,13 +179,13 @@ msgid ""
 "оставить отзыв на его профиле. Отзывы включают оценку качества работы и "
 "комментарии о сотрудничестве."
 msgstr ""
-"After working with any specialist, you will be able to leave a review on "
-"their profile. Reviews include a rating of the work quality and comments "
-"about the collaboration."
+"Ар бир адис менен иш бүткөн соң, анын профилине пикир калтырууга мүмкүнчүлүк "
+"аласыз. Пикирлер иштин сапаты жана кызматташуу тууралуу баалоо жана "
+"комментарийлерди камтыйт."
 
 #: .\main\templates\main\faq.html:69
 msgid "Что делать, если у меня возникли проблемы с использованием платформы?"
-msgstr "What should I do if I have issues using the platform?"
+msgstr "Платформаны колдонууда көйгөйлөр пайда болсо, эмне кылышым керек?"
 
 #: .\main\templates\main\faq.html:70
 msgid ""
@@ -192,12 +193,12 @@ msgid ""
 "поддержки. Мы готовы помочь вам с любыми техническими или организационными "
 "вопросами."
 msgstr ""
-"If you experience any problems, please contact our support team. We're ready "
-"to assist you with any technical or organizational issues."
+"Эгерде көйгөйлөр пайда болсо, биздин колдоо кызматыбызга кайрылыңыз. Биз "
+"техникалык же уюштуруу маселелеринде жардам берүүгө даярбыз."
 
 #: .\main\templates\main\faq.html:74
 msgid "Могу ли я редактировать свою заявку после её отправки?"
-msgstr "Can I edit my request after submitting it?"
+msgstr "Өтүнмөнү жибергенден кийин аны өзгөртсө болобу?"
 
 #: .\main\templates\main\faq.html:75
 msgid ""
@@ -205,161 +206,160 @@ msgid ""
 "взаимодействие с откликнувшимися специалистами. После этого изменения будут "
 "невозможны."
 msgstr ""
-"Yes, you can edit your request until active interaction with responding "
-"specialists begins. After that, changes will no longer be possible."
+"Ооба, сиз өтүнмөнү адистер жооп бере баштаганга чейин өзгөртө аласыз. "
+"Ошондон кийин өзгөртүүлөр мүмкүн эмес болот."
 
 #: .\main\templates\main\faq.html:79
 msgid "Какие способы оплаты доступны для клиентов?"
-msgstr "What payment methods are available for clients?"
+msgstr "Кардарлар үчүн кандай төлөм ыкмалары бар?"
 
 #: .\main\templates\main\faq.html:80
 msgid ""
 "Мы поддерживаем различные способы оплаты, включая банковские карты, "
 "электронные кошельки и другие популярные методы."
 msgstr ""
-"We support various payment methods including bank cards, e-wallets, and "
-"other popular options."
+"Биз ар кандай төлөм ыкмаларын колдойбуз, анын ичинде банк карталары, "
+"электрондук капчыкдар жана башка популярдуу ыкмалары."
 
 #: .\main\templates\main\faq.html:84
 msgid "Как я могу удалить свою заявку или профиль?"
-msgstr "How can I delete my request or profile?"
+msgstr "Өтүнмөнү же профилди кантип өчүрсө болот?"
 
 #: .\main\templates\main\faq.html:85
 msgid ""
 "Вы можете удалить заявку через ваш личный кабинет, а профиль можно удалить "
 "через настройки аккаунта. Обратите внимание, что это действие необратимо."
 msgstr ""
-"You can delete your request from your personal account, and delete your "
-"profile in the account settings. Please note that this action is "
-"irreversible."
+"Өтүнмөнү жеке кабинетиңиз аркылуу өчүрсөңүз болот, ал эми профилди "
+"аккаунттун жөндөөлөрү аркылуу өчүрсө болот. Эскертүү: бул аракет кайтарылгыс."
 
 #: .\main\templates\main\home.html:13
 msgid "Найди и найм лучших специалистов в SMM, фото, видео и маркетинге!"
 msgstr ""
-"Find and hire the best specialists in SMM, photography, video, and marketing!"
+"SMM, фото, видео жана маркетингде эң мыкты адистерди табыңыз жана жалдаңыз!"
 
 #: .\main\templates\main\home.html:15
 msgid ""
 "Ищешь опытного специалиста для продвижения бизнеса? Или ты сам — SMM-"
 "менеджер, видеограф, маркетолог и хочешь получать заказы? "
 msgstr ""
-"Looking for an experienced specialist to promote your business? Or are you "
-"an SMM manager, videographer, marketer, and want to receive orders?"
+"Бизнести илгерилетүү үчүн тажрыйбалуу адис издеп жатасызбы? Же сиз өзүңүз — "
+"SMM-менеджер, видеограф, маркетолог болуп, тапшырмаларды алгыңыз келеби?"
 
 #: .\main\templates\main\home.html:22
 #: .\request\templates\request\client_request_list.html:9
 #: .\templates\base.html:43
 msgid "Поиск заявок..."
-msgstr "Job search..."
+msgstr "Өтүнмөлөрдү издөө..."
 
 #: .\main\templates\main\home.html:39
 msgid "Откликов каждый месяц"
-msgstr "Feedback every month"
+msgstr "Ар бир айда болгон жооптор"
 
 #: .\main\templates\main\home.html:43
 msgid "Зарегистрированных специалистов"
-msgstr "Registered specialists"
+msgstr "Катталган адистер"
 
 #: .\main\templates\main\home.html:47
 msgid " Успешных проектов"
-msgstr "Successful projects"
+msgstr "Ушул убакта ийгиликтүү аяктагандар"
 
 #: .\main\templates\main\home.html:51
 msgid "Клиентов находят исполнителя за 24 часа"
-msgstr "Clients are found by the contractor in 24 hours"
+msgstr "Кардарлар 24 сааттын ичинде аткаруучу табышат"
 
 #: .\main\templates\main\home.html:63
 msgid "Команда основателей"
-msgstr "The founding team"
+msgstr "Негиздөөчүлөрдүн командасы"
 
 #: .\main\templates\main\home.html:64
 msgid "Мы не идеальны, но зато смешные. А сайт вроде работает!"
-msgstr ""
-"We're not perfect, but we're funny. And the website seems to be working!"
+msgstr "Биз идеалдуу эмес, бирок күлкүлүүбүз. Ал эми сайт иштеп жатат го!"
 
 #: .\main\templates\main\home.html:177
 msgid ""
 "Здесь вы найдете ответы на самые популярные вопросы о работе нашей "
 "платформы. Если не нашли нужную информацию, свяжитесь с нами!"
 msgstr ""
-"Here you will find answers to the most popular questions about the work of "
-"our platform. If you haven't found the information you need, please contact "
-"us!"
+"Бул жерде сиз биздин платформабыздын иши тууралуу эң популярдуу суроолорго "
+"жоопторду таба аласыз. Эгер керектүү маалыматты таба албасаңыз, биз менен "
+"байланышыңыз!"
 
 #: .\main\templates\main\home.html:191
 msgid "Как работает платформа?"
-msgstr "How does the platform work?"
+msgstr "Платформа кантип иштейт?"
 
 #: .\main\templates\main\home.html:195
 msgid ""
 "Вы можете оставить заявку на услугу или выбрать специалиста из списка. После "
 "этого начинается общение и обсуждение деталей."
 msgstr ""
-"You can submit a request for the service or select a specialist from the "
-"list. After that, communication and discussion of details begin."
+"Сиз кызмат үчүн өтүнмө калтырып же адисти тизмеден тандай аласыз. Андан "
+"кийин сүйлөшүүлөр башталып, дегендей, деталдарды талкуулай аласыз."
 
 #: .\main\templates\main\home.html:202
 msgid "Сколько стоит использование платформы?"
-msgstr "How much does it cost to use the platform?"
+msgstr "Платформаны колдонуу канча турат?"
 
 #: .\main\templates\main\home.html:206
 msgid ""
 "Размещение заявок и поиск специалистов – бесплатно. Возможны дополнительные "
 "платные функции для продвижения."
 msgstr ""
-"The placement of applications and the search for specialists is free of "
-"charge. Additional paid features for promotion are possible."
+"Өтүнмөлөрдү жайгаштыруу жана адистерди издөө – бекер. Ильгерилетүү үчүн "
+"кошумча акылы функциялар мүмкүн."
 
 #: .\main\templates\main\home.html:213
 msgid "Какие специалисты здесь работают?"
-msgstr "What kind of specialists work here?"
+msgstr "Бул жерде кандай адистер иштейт?"
 
 #: .\main\templates\main\home.html:217
 msgid ""
 "На платформе можно найти SMM-специалистов, маркетологов, видеографов, "
 "мобилографов, копирайтеров и других."
 msgstr ""
-"On the platform, you can find SMM specialists, marketers, videographers, "
-"mobilographers, copywriters, and others."
+"Платформада SMM-адистерди, маркетологдорду, видеографтарды, мобилографтарды, "
+"копирайтерлерди жана башкаларды табууга болот."
 
 #: .\main\templates\main\home.html:224
 msgid "Как убедиться в надежности специалиста?"
-msgstr "How can I verify the reliability of a specialist?"
+msgstr "Адистин ишенимдүүлүгүнө кантип ишенсек болот?"
 
 #: .\main\templates\main\home.html:228
 msgid ""
 "Вы можете просмотреть портфолио, отзывы и рейтинг специалиста перед тем, как "
 "начать сотрудничество."
 msgstr ""
-"You can view the portfolio, reviews, and rating of a specialist before "
-"starting a collaboration."
+"Сиз адисти менен кызматташуу баштоодон мурун, анын портфолиосун, пикирлерин "
+"жана рейтингин карай аласыз."
 
 #: .\main\templates\main\home.html:235
 msgid "Что делать, если возникли проблемы с заказом?"
-msgstr "What should I do if there are problems with the order?"
+msgstr "Эгер тапшырма менен көйгөйлөр болсо, эмне кылуу керек?"
 
 #: .\main\templates\main\home.html:239
 msgid "Свяжитесь с нашей поддержкой – мы поможем разобраться в ситуации."
 msgstr ""
-"Contact our support team and we will help you figure out the situation."
+"Биздин колдоо кызматыбыз менен байланышыңыз – биз кырдаалды түшүнүүгө жардам "
+"беребиз."
 
 #: .\main\templates\main\how_it_works.html:14 .\templates\base.html:71
 msgid "Как это работает?"
-msgstr "How does it work?"
+msgstr "Бул кантип иштейт?"
 
 #: .\main\templates\main\how_it_works.html:21
 msgid "Конец"
-msgstr "END"
+msgstr "Аягына чыгуу"
 
 #: .\main\templates\main\how_it_works.html:28
 #: .\main\templates\main\how_it_works.html:46
 #: .\main\templates\main\how_it_works.html:64
 msgid "Шаг"
-msgstr "Step"
+msgstr "Аракет"
 
 #: .\main\templates\main\how_it_works.html:31
 msgid "Получите онлайн-предложение "
-msgstr "Get an online offer"
+msgstr "Онлайн сунушту алыңыз"
 
 #: .\main\templates\main\how_it_works.html:33
 msgid ""
@@ -371,15 +371,17 @@ msgid ""
 "вы сможете выбрать наиболее подходящее для себя. \n"
 "                    "
 msgstr ""
-"Fill out a simple form on our website with a description of your needs. "
-"Specify all the details — what exactly you need, what are your preferences "
-"in terms of deadlines, budget and working conditions. The specialists "
-"registered on our platform will quickly respond with suggestions, and you "
-"will be able to choose the most suitable one for yourself."
+" \n"
+"                    Биздин сайтта жөнөкөй форманы толтуруңуз, анда сиздин "
+"муктаждыктарыңыз  тууралуу маалымат бериңиз. Бардык деталдарды көрсөтүңүз — "
+"сизге эмне керек, убакыт, бюджет жана иш шарттары боюнча кандай талаптар "
+"бар. Платформада катталган адистер тез арада сунуштар менен жооп берип, сиз "
+"үчүн эң ылайыктуу вариантты тандай аласыз. \n"
+"                    "
 
 #: .\main\templates\main\how_it_works.html:49
 msgid "Получите услуги бесплатно"
-msgstr "Get these services for free"
+msgstr "Кызматты бекер алыңыз"
 
 #: .\main\templates\main\how_it_works.html:51
 msgid ""
@@ -392,16 +394,17 @@ msgid ""
 "личный кабинет.\n"
 "                    "
 msgstr ""
-"After you have selected the right specialist and agreed on all the "
-"conditions, the specialist will perform the work according to your request. "
-"You will know for sure that you will receive the right service without "
-"hidden costs or additional fees. The platform will ensure transparency of "
-"all stages, and all communications and materials will be exchanged "
-"conveniently through a personal account."
+" \n"
+"                    Сиз ылайыктуу адисти тандап, бардык шарттар боюнча "
+"макулдашкан соң, адис сиздин өтүнмөңүзгө ылайык ишти аяктайт. Сиз жасалган "
+"кызматтын жашыруун чыгымдарсыз же кошумча комиссияларсыз берилээрин так "
+"билесиз. Платформа бардык этаптардын ачык-айкындуулугун камсыз кылат, бардык "
+"байланыштар жана материалдар ыңгайлуу түрдө жеке кабинет аркылуу алмашылат.\n"
+"                    "
 
 #: .\main\templates\main\how_it_works.html:67
 msgid "Получите оплату быстро и безопасно"
-msgstr "Get paid quickly and safely"
+msgstr "Тез жана коопсуз түрдө төлөм алыңыз"
 
 #: .\main\templates\main\how_it_works.html:69
 msgid ""
@@ -413,65 +416,66 @@ msgid ""
 "всех условий соглашения.\n"
 "                    "
 msgstr ""
-"When the work is completed, you will be able to make a payment through our "
-"platform. We guarantee fast and secure payments for both parties. "
-"Specialists can be sure that they will receive their funds, and customers "
-"can be sure that payment will be made only after all the terms of the "
-"agreement have been fulfilled."
+" \n"
+"                    Иш аяктагандан кийин, сиз биздин платформа аркылуу "
+"төлөмдү жүргүзө аласыз. Биз эки тарап үчүн дагы тез жана коопсуз төлөмдөрдү "
+"кепилдейбиз. Адистер өз каражаттарын алышарына ишенишет, ал эми кардарлар — "
+"төлөмдөр шарттардын бардыгы аткарылган соң гана жүргүзүлөт деп ишенишет.\n"
+"                    "
 
 #: .\main\templates\main\work.html:8
 msgid "Для клиентов"
-msgstr "For clients"
+msgstr "Кардарлар үчүн"
 
 #: .\main\templates\main\work.html:9
 msgid "Искать специалиста"
-msgstr "Looking for a specialist"
+msgstr "Адисти издөө"
 
 #: .\main\templates\main\work.html:12
 msgid "Для специалистов"
-msgstr "For specialists"
+msgstr "Адистер үчүн"
 
 #: .\main\templates\main\work.html:13
 msgid "Искать клиента"
-msgstr "Looking for a client"
+msgstr "Кардарды издөө"
 
 #: .\notifications\templates\notifications\notifications.html:7
 #: .\notifications\templates\notifications\notifications.html:15
 #: .\templates\base.html:54
 msgid "Уведомления"
-msgstr "Notifications"
+msgstr "Хабарламалар"
 
 #: .\notifications\templates\notifications\notifications.html:22
 msgid "Отметить как прочитанное"
-msgstr "Mark as read"
+msgstr "Окулган деп белгиле"
 
 #: .\notifications\templates\notifications\notifications.html:25
 msgid "Нет уведомлений"
-msgstr "No notifications"
+msgstr "Хабарламалар жок"
 
 #: .\request\templates\request\client_request_detail.html:7
 msgid "Описания"
-msgstr "Descriptions"
+msgstr "Тасмирлер"
 
 #: .\request\templates\request\client_request_detail.html:9
 #: .\request\templates\request\client_request_list.html:25
 #: .\request\templates\request\request_list.html:31
 msgid "Автор"
-msgstr "Author"
+msgstr "Автор"
 
 #: .\request\templates\request\client_request_detail.html:10
 #: .\request\templates\request\request_detail.html:41
 #: .\request\templates\request\request_list.html:31
 #: .\users\templates\users\profile.html:16
 msgid "Рейтинг"
-msgstr "Rating"
+msgstr "Рейтинг"
 
 #: .\request\templates\request\client_request_detail.html:19
 #: .\request\templates\request\client_request_detail.html:34
 #: .\request\templates\request\request_detail.html:25
 #: .\request\templates\request\request_detail.html:73
 msgid "Редактировать"
-msgstr "Edit"
+msgstr "Түзөтүү"
 
 #: .\request\templates\request\client_request_detail.html:20
 #: .\request\templates\request\client_request_detail.html:37
@@ -479,93 +483,93 @@ msgstr "Edit"
 #: .\request\templates\request\request_detail.html:26
 #: .\request\templates\request\request_detail.html:76
 msgid "Удалить"
-msgstr "Delete"
+msgstr "Өчүрүү"
 
 #: .\request\templates\request\client_request_detail.html:24
 #: .\users\templates\users\reviews.html:63
 msgid "Коментарий"
-msgstr "Comment"
+msgstr "Комментарий"
 
 #: .\request\templates\request\client_request_detail.html:43
 msgid "Коментариев пока нет."
-msgstr "There are no comments yet."
+msgstr "Комментарийлер жок."
 
 #: .\request\templates\request\client_request_detail.html:49
 #: .\request\templates\request\request_detail.html:86
 msgid "Добавить коментарий"
-msgstr "Add comment"
+msgstr "Комментарий кошуу"
 
 #: .\request\templates\request\client_request_detail.html:53
 #: .\request\templates\request\create_client_request.html:12
 #: .\request\templates\request\request_detail.html:90
 #: .\users\templates\users\send_feedback.html:25
 msgid "Отправить"
-msgstr "Send"
+msgstr "Жөнөтүү"
 
 #: .\request\templates\request\client_request_list.html:5
 msgid "Заявки от клиентов"
-msgstr "Requests from clients"
+msgstr "Кардарлардан келген өтүнмөлөр"
 
 #: .\request\templates\request\client_request_list.html:6
 #: .\request\templates\request\create_client_request.html:6
 #: .\request\templates\request\create_request.html:4
 msgid "Создать заявку"
-msgstr "Create a request "
+msgstr "Өтүнмө түзүү"
 
 #: .\request\templates\request\client_request_list.html:14
 msgid "Сортировать по"
-msgstr "Sort by"
+msgstr "Тартипке салуу"
 
 #: .\request\templates\request\client_request_list.html:16
 msgid "Новые"
-msgstr "New"
+msgstr "Жаңы"
 
 #: .\request\templates\request\client_request_list.html:17
 msgid "Старые"
-msgstr "The old"
+msgstr "Эски"
 
 #: .\request\templates\request\client_request_list.html:18
 msgid "Рейтинг автора"
-msgstr "Author's rating"
+msgstr "Автордун рейтинги"
 
 #: .\request\templates\request\client_request_list.html:26
 msgid "Описание"
-msgstr "Descriptions"
+msgstr "Тасмири"
 
 #: .\request\templates\request\client_request_list.html:31
 #: .\request\templates\request\request_list.html:29
 msgid "Добавить в избранное"
-msgstr "Add to Favorites"
+msgstr "Сүйүктүүлөргө кошуу"
 
 #: .\request\templates\request\client_request_list.html:32
 #: .\request\templates\request\request_list.html:30
 msgid "Удалить из избранного"
-msgstr "Delete from Favorites"
+msgstr "Сүйүктүүлөрдөн өчүрүү"
 
 #: .\request\templates\request\client_request_list.html:36
 msgid "Заявок пока нет."
-msgstr "There are no requests yet"
+msgstr "Өтүнмөлөр жок."
 
 #: .\request\templates\request\create_request.html:8
 #: .\request\templates\request\request_list.html:15
 msgid "Создать"
-msgstr "Create"
+msgstr "Түзүү"
 
 #: .\request\templates\request\delete_client_request.html:5
 msgid "Удаление заявки"
-msgstr "Delete request"
+msgstr "Өтүнмөнү жоюу"  
+
 
 #: .\request\templates\request\delete_client_request.html:6
 msgid "Вы уверены, что хотите удалить заявку"
-msgstr "Are you sure you want to delete the request?"
-
+msgstr "Сиз өтүнмөнү жок кылууга ынаныңызбы?"  
 
 #: .\request\templates\request\delete_client_request.html:11
 #: .\request\templates\request\edit_client_comment.html:16
 #: .\request\templates\request\edit_client_request.html:10
 #: .\request\templates\request\edit_comment.html:16
 msgid "Отмена"
-msgstr "Cancel"
+msgstr "Болтурбоо"
 
 #: .\request\templates\request\edit_client_comment.html:13
 #: .\request\templates\request\edit_comment.html:13
@@ -575,266 +579,271 @@ msgstr "Cancel"
 #: .\users\templates\users\edit_profile.html:8
 #: .\users\templates\users\password_reset_confirm.html:20
 msgid "Сохранить"
-msgstr "Save"
+msgstr "Сактоо"
 
 #: .\request\templates\request\edit_client_request.html:4
 #: .\request\templates\request\edit_request.html:4
 msgid "Редактировать заявку"
-msgstr "Edit request"
+msgstr "Өтүнмөнү түзөтүү"
 
 #: .\request\templates\request\edit_client_request.html:8
 msgid "Сохранить изменения"
-msgstr "Save changes"
+msgstr "Өзгөртүүлөрдү сактоо"
 
 #: .\request\templates\request\favorites.html:4
 msgid "Избранные заявки"
-msgstr "Favorites requests"
+msgstr "Сүйүктүү өтүнмөлөр"
 
 #: .\request\templates\request\favorites.html:10
 #: .\request\templates\request\favorites.html:24
 msgid "Подробнее"
-msgstr "In more detail"
+msgstr "Толугураак"
 
 #: .\request\templates\request\favorites.html:13
 #: .\request\templates\request\favorites.html:27
 msgid "Нет избранных заявок"
-msgstr "Job search..."
+msgstr "Сүйүктүү өтүнмөлөр жок"
 
 #: .\request\templates\request\favorites.html:17
 msgid "Избранные клиентские заявки"
-msgstr "Favorite client requests"
+msgstr "Сүйүктүү кардар өтүнмөлөрү"
 
 #: .\request\templates\request\request_detail.html:10
 msgid "Зарплата"
-msgstr "Salary"
+msgstr "Жалаакы"
 
 #: .\request\templates\request\request_detail.html:11
 msgid "График"
-msgstr "Schedule"
+msgstr "График"
 
 #: .\request\templates\request\request_detail.html:14
 #: .\request\templates\request\request_list.html:32
 msgid "Откликнуться"
-msgstr "Apply"
+msgstr "Жооп берүү"
 
 #: .\request\templates\request\request_detail.html:15
 msgid "Контакты"
-msgstr "Contacts"
+msgstr "Контакттар"
 
 #: .\request\templates\request\request_detail.html:21
 msgid "Контактная информация не предоставлена"
-msgstr "Contact information not provided"
+msgstr "Контакттык маалымат берилген жок"
 
 #: .\request\templates\request\request_detail.html:33
 msgid "О компании"
-msgstr "About the company"
+msgstr "Компания жөнүндө"
 
 #: .\request\templates\request\request_detail.html:45
 msgid "Похожие вакансии"
-msgstr "Similar vacancies"
+msgstr "Окшош жумуштар"
 
 #: .\request\templates\request\request_detail.html:50
 msgid "Нет похожих вакансий"
-msgstr "No similar vacancies"
+msgstr "Окшош жумуштар жок"
 
 #: .\request\templates\request\request_detail.html:58
 msgid "Коментарии"
-msgstr "Comments"
+msgstr "Комментарийлер"
 
 #: .\request\templates\request\request_detail.html:83
 msgid "Комментариев пока нет."
-msgstr "No comments yet."
+msgstr "Комментарийлер азырынча жок."
 
 #: .\request\templates\request\request_list.html:7
 msgid "Фильтр"
-msgstr "Filter"
+msgstr "Фильтр"
 
 #: .\request\templates\request\request_list.html:9
 msgid "По рейтингу (по умолчанию)"
-msgstr "By rating (default)"
+msgstr "Рейтинг боюнча (баштапкы)"
 
 #: .\request\templates\request\request_list.html:10
 msgid "Сначала новые"
-msgstr "Newest first"
+msgstr "Алгач жаңы"
 
 #: .\request\templates\request\request_list.html:11
 msgid "Сначала старые"
-msgstr "Oldest first"
+msgstr "Алгач эски"
 
 #: .\request\templates\request\request_list.html:14
 msgid "Фильтровать"
-msgstr "Filter"
+msgstr "Фильтроо"
 
 #: .\request\templates\request\request_list.html:35
 msgid "Нет заявок"
-msgstr "No requests"
+msgstr "Өтүнмөлөр жок"
 
 #: .\templates\base.html:10 .\users\templates\users\feedback_success.html:7
 msgid "Главная страница"
-msgstr "Main page"
+msgstr "Башкы бет"
 
 #: .\templates\base.html:48
 msgid "Главная"
-msgstr "Main"
+msgstr "Башкы"
 
 #: .\templates\base.html:49 .\templates\base.html:161
 msgid "Вакансии"
-msgstr "Job openings"
+msgstr "Вакансиялар"
 
 #: .\templates\base.html:50
 msgid "Избранные"
-msgstr "Favorites"
+msgstr "Сүйүктүүлөр"
 
 #: .\templates\base.html:59
 msgid "Помощь"
-msgstr "Help"
+msgstr "Жардам"
 
 #: .\templates\base.html:74
 msgid "Вопрос & Ответ"
-msgstr "Question & Answer"
+msgstr "Сурак & Жооп"
 
 #: .\templates\base.html:77 .\users\templates\users\send_feedback.html:20
 msgid "Обратная связь"
-msgstr "Feedback"
+msgstr "Кайтарым байланыс"
 
 #: .\templates\base.html:95
 msgid "Зарегистрироваться"
-msgstr "Sign in"
+msgstr "Катталуу"
 
 #: .\templates\base.html:100 .\users\templates\users\login.html:195
 msgid "Войти"
-msgstr "Login"
+msgstr "Кирүү"
 
 #: .\templates\base.html:143
 msgid "Политика"
-msgstr "Politics"
+msgstr "Саясат"
 
 #: .\templates\base.html:151
 msgid "Соц.сеть"
-msgstr "Social network"
+msgstr "Соц.тармак"
 
 #: .\templates\base.html:159
 msgid "Разделы"
-msgstr "Sections"
+msgstr "Бөлүмдөр"
 
 #: .\templates\base.html:162
 msgid "Тех.поддержка"
-msgstr "Technical support"
+msgstr "Тех.жардам"
 
 #: .\templates\base.html:173
 msgid "Сменить язык"
-msgstr "Change the language"
+msgstr "Тилди алмаштыруу"
 
 #: .\users\templates\users\add_work.html:5
 #: .\users\templates\users\profile.html:26
 msgid "Добавить работу"
-msgstr "Add work"
+msgstr "Жумуш кошуу"
 
 #: .\users\templates\users\add_work.html:61
 msgid "Добавить"
-msgstr "Add"
+msgstr "Кошуу"
 
 #: .\users\templates\users\add_work.html:62
 #: .\users\templates\users\edit_profile.html:10
 msgid "Назад"
-msgstr "Back"
+msgstr "Арка"
 
 #: .\users\templates\users\change_email.html:5
 #: .\users\templates\users\setting.html:139
 msgid "Сменить электронную почту"
-msgstr "Change email"
+msgstr "Электрондук почтаны алмаштыруу"
 
 #: .\users\templates\users\change_username.html:6
 #: .\users\templates\users\setting.html:144
 msgid "Сменить имя пользователя"
-msgstr "Change Username"
+msgstr "Колдонуучунун атын алмаштыруу"
 
 #: .\users\templates\users\edit_profile.html:4
 #: .\users\templates\users\profile.html:22
 msgid "Редактировать профиль"
-msgstr "Edit profile"
+msgstr "Профилди түзөтүү"
 
 #: .\users\templates\users\feedback_success.html:5
 msgid "Спасибо за ваше обращение!"
-msgstr "Thank you for your message!"
+msgstr "Суранычыңыз үчүн рахмат!"
 
 #: .\users\templates\users\feedback_success.html:6
 msgid "Мы получили ваше сообщение и обязательно его рассмотрим."
-msgstr "We have received your message and will definitely review it."
+msgstr "Биз сиздин билдирүүңүздү алдык жана аны жакын арада карайбыз."
 
 #: .\users\templates\users\login.html:219
 msgid "Авторизация"
-msgstr "Authorization"
+msgstr "Авторизация"
 
 #: .\users\templates\users\login.html:224
 #: .\users\templates\users\register.html:116
 #: .\users\templates\users\setting.html:79
 msgid "Имя пользователя"
-msgstr "Username"
+msgstr "Колдонуучунун аты"
 
 #: .\users\templates\users\login.html:228
 #: .\users\templates\users\register.html:145
 msgid "Пароль"
-msgstr "Password"
+msgstr "Сөзүм"
 
 #: .\users\templates\users\login.html:232
 msgid "Забыли пароль?"
-msgstr "Forgot your password?"
+msgstr "Сөзүмдү унуттуңузбу?"
 
 #: .\users\templates\users\login.html:233
 msgid "Авторизоваться"
-msgstr "Authorization"
+msgstr "Кирүү"
 
 #: .\users\templates\users\login.html:249
 msgid "Войти через ВКонтакте"
-msgstr "Log in via Vkontakte"
+msgstr "ВКонтакте аркылуу кирүү"
 
 #: .\users\templates\users\login.html:252
 msgid "Нужен аккаунт? Зарегистрируйся!"
-msgstr "Do you need an account? Sign up!"
+msgstr "Аккаунт керекпи? Катталуу!"
 
 #: .\users\templates\users\maintenance.html:9
 msgid "Технические работы"
-msgstr "Technical Work"
+msgstr "Техникалык иштер"
 
 #: .\users\templates\users\maintenance.html:52
 msgid "Мы проводим технические работы"
-msgstr "We are carrying out technical work"
+msgstr "Биз техникалык иштерди жүргүзүп жатабыз"
 
 #: .\users\templates\users\maintenance.html:53
 msgid ""
 "Извините за временные неудобства. Наши специалисты уже работают над "
 "улучшением сервиса. Мы постараемся завершить работы как можно быстрее."
 msgstr ""
-"Sorry for the temporary inconvenience. Our specialists are already working "
-"on improving the service. We will try to complete the work as soon as "
-"possible."
+"Убакыттык ыңгайсыздык үчүн кечирим сурайбыз. Биздин адистер сервисибизди "
+"жакшыртуу боюнча иштеп жатышат. Биз иштерди мүмкүн болушунча ылдам бүтүрүүгө "
+"аракет кылабыз."
 
 #: .\users\templates\users\maintenance.html:54
 msgid ""
 "Пожалуйста, попробуйте посетить наш сайт позже. Благодарим за понимание!"
 msgstr ""
-"Please try to visit our website later. Thank you for your understanding!"
+"Кечирип, биздин сайтка кийинчерээк кайтып келүүгө аракет кылыңыз. Түшүнүүңүз "
+"үчүн рахмат!"
 
 #: .\users\templates\users\password_reset_confirm.html:5
 msgid "Новый пароль"
-msgstr "New password"
+msgstr "Жаңы сөзүм"
 
 #: .\users\templates\users\password_reset_done.html:6
 msgid "Password Reset"
-msgstr ""
+msgstr "Сөзүмдү калыбына келтирүү"
 
 #: .\users\templates\users\password_reset_done.html:9
 msgid ""
 "We’ve emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
 msgstr ""
+"Биз сизге сөзүмдү орнотуу боюнча көрсөтмөлөрдү жөнөткөнбүз, эгер киргизген "
+"электрондук почтаңыз менен аккаунт болсо. Алардын жакында келет деп күтөлү."
 
 #: .\users\templates\users\password_reset_done.html:13
 msgid ""
 "If you don’t receive an email, please make sure you’ve entered the address "
 "you registered with, and check your spam folder."
 msgstr ""
+"Эгер электрондук почтаны албасаңыз, каттоо үчүн колдонгон дарегиңизди туура "
+"киргизгендиңизге ынанууңузду сурайбыз жана спам папкаңызды текшерип чыгыңыз."
 
 #: .\users\templates\users\password_reset_email.html:2
 #, python-format
@@ -842,168 +851,154 @@ msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
 msgstr ""
+"Сиз бул электрондук почтаны алгансыз, анткени сиз %(site_name)s сайтына "
+"катталган аккаунт үчүн сөзүмдү калыбына келтирүүнү сурандыңыз."
 
 #: .\users\templates\users\password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "Жаңы сөзүмдү тандоо үчүн төмөнкү баракчага барыңыз:"
 
 #: .\users\templates\users\password_reset_email.html:8
 msgid "Your username, in case you’ve forgotten:"
-msgstr ""
+msgstr "Эгер унутуп калсаңыз, колдонуучунун атыңыз:"
 
 #: .\users\templates\users\password_reset_email.html:10
 msgid "Thanks for using our site!"
-msgstr ""
+msgstr "Биздин сайтты колдонгонго рахмат!"
 
 #: .\users\templates\users\password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr ""
+msgstr "The %(site_name)s командасы"
 
 #: .\users\templates\users\password_reset_form.html:6
 msgid "Восстановление пароля"
-msgstr "Password Recovery"
+msgstr "Сөзүмдү калыбына келтирүү"
 
 #: .\users\templates\users\password_reset_form.html:80
 msgid "Сбросить по E-mail"
-msgstr "Reset by Email"
+msgstr "Электрондук почта аркылуу калыбына келтирүү"
 
 #: .\users\templates\users\profile.html:15
 msgid "Постов"
-msgstr "Posts"
+msgstr "Жазуулар"
 
 #: .\users\templates\users\profile.html:17
 msgid "Роль"
-msgstr "Role"
+msgstr "Роль"
 
 #: .\users\templates\users\profile.html:24
 msgid "Посмотреть отзывов"
-msgstr "View reviews"
+msgstr "Пикирлерди карап чыгуу"
 
 #: .\users\templates\users\profile.html:58
 msgid "Постов ещё нет"
-msgstr "No posts yet"
+msgstr "Жазуулар азырынча жок"
 
 #: .\users\templates\users\register.html:92
 #: .\users\templates\users\setting.html:37
 msgid "Имя"
-msgstr "Name"
+msgstr "Аты"
 
 #: .\users\templates\users\register.html:104
 #: .\users\templates\users\setting.html:51
 msgid "Фамилия"
-msgstr "Surname"
+msgstr "Фамилиясы"
 
 #: .\users\templates\users\register.html:127
 msgid "Выберите роль"
-msgstr "Select role"
+msgstr "Рольду тандаңыз"
 
 #: .\users\templates\users\register.html:133
 #: .\users\templates\users\setting.html:66
 msgid "Электронная почта"
-msgstr "Email"
+msgstr "Электрондук почта"
 
 #: .\users\templates\users\register.html:157
 msgid "Подтверждение пароля"
-msgstr "Password Confirmation"
+msgstr "Паролду тастыктоо"
 
 #: .\users\templates\users\register.html:168
 msgid "Создать аккаунт"
-msgstr "Create account"
+msgstr "Аккаунт түзүү"
 
 #: .\users\templates\users\register.html:172
 msgid "Уже есть аккаунт? Авторизоваться"
-msgstr "Do you already have an account? Log in"
+msgstr "Аккаунт барбы? Кирүү"
 
 #: .\users\templates\users\register_done.html:7
 msgid "Регистрация прошла успешно!"
-msgstr "Registration was successful!"
+msgstr "Каттоо ийгиликтүү аяктады!"
 
 #: .\users\templates\users\register_done.html:8
 msgid "Спасибо за регистрацию. Теперь вы можете войти в свою учетную запись."
-msgstr "Thanks for registering. You can now log in to your account."
+msgstr "Каттоо үчүн рахмат. Эми сиз өз акаунтуңузга кире аласыз."
 
 #: .\users\templates\users\reviews.html:8
 msgid "Отзывы"
-msgstr "reviews"
+msgstr "Пикирлер"
 
 #: .\users\templates\users\reviews.html:24
 msgid "отзывов"
-msgstr "reviews"
+msgstr "пикирлер"
 
 #: .\users\templates\users\reviews.html:29
 msgid "отредактрирован"
-msgstr "edited"
+msgstr "редактирленген"
 
 #: .\users\templates\users\reviews.html:48
 msgid "Полезно"
-msgstr "Like"
+msgstr "Жакшы"
 
 #: .\users\templates\users\reviews.html:53
 msgid "Нет отзывов"
-msgstr "There are no reviews"
+msgstr "Пикирлер жок"
 
 #: .\users\templates\users\reviews.html:59
 msgid "Оставить отзыв"
-msgstr "Send rating"
+msgstr "Пикир калтыру"
 
 #: .\users\templates\users\reviews.html:66
 msgid "Оценка"
-msgstr "Rating"
+msgstr "Баалоо"
 
 #: .\users\templates\users\reviews.html:75
 msgid "Отправить отзыв"
-msgstr "Send rating"
+msgstr "Пикир жиберүү"
 
 #: .\users\templates\users\setting.html:15
 msgid "Настройки аккаунта"
-msgstr "setting account"
+msgstr "Акаунтту жөндөөлөр"
 
 #: .\users\templates\users\setting.html:91
 msgid "Фото профиля"
-msgstr "Image profile"
+msgstr "Профил сүрөтү"
 
 #: .\users\templates\users\setting.html:93
 msgid "Загрузить изображения"
-msgstr "Dowload the image"
+msgstr "Сүрөт жүктөө"
 
 #: .\users\templates\users\setting.html:96
 #: .\users\templates\users\setting.html:106
 msgid "Файл не выбран"
-msgstr "The file is not selected"
+msgstr "Файл тандалган жок"
 
 #: .\users\templates\users\setting.html:100
 msgid "Баннер профиля"
-msgstr "Banner profile"
+msgstr "Профил баннери"
 
 #: .\users\templates\users\setting.html:102
 msgid "Загрузить баннер"
-msgstr "Dowload the banner"
+msgstr "Баннер жүктөө"
 
 #: .\users\templates\users\setting.html:126
 msgid "Обо мне"
-msgstr "About me"
+msgstr "Мен жөнүндө"
 
 #: .\users\templates\users\setting.html:134
 msgid "Сменить пароль"
-msgstr "Change password"
+msgstr "Паролду алмаштыруу"
 
 #: .\users\templates\users\setting.html:152
 msgid "Обновить профиль"
-msgstr "Update profile"
-
-#~ msgid ""
-#~ "Для добавления работ перейдите в свой профиль и выберите опцию 'Добавить "
-#~ "работу'. Здесь вы можете загрузить изображения, видеоролики или ссылки на "
-#~ "выполненные проекты. Это поможет потенциальным клиентам оценить ваши "
-#~ "навыки."
-#~ msgstr ""
-#~ "To add jobs, go to your profile and select the 'Add Job' option. Here you "
-#~ "can upload images, videos, or links to completed projects. This will help "
-#~ "potential clients evaluate your skills."
-
-#~ msgid "Светлая тема"
-#~ msgstr "Light theme"
-
-#~ msgid "Тёмная тема"
-#~ msgstr "Dark theme"
+msgstr "Профилди жаңыртуу"

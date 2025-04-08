@@ -1,10 +1,11 @@
 
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
     <!-- Отзывы -->
-    <h3>Отзывы</h3>
+    <h3>{% trans 'Отзывы' %}</h3>
 <div class="reviews-list">
     {% for review in reviews %}
         <div class="review">
@@ -20,12 +21,12 @@
             <div class="review-content">
                 <!-- Имя пользователя и количество отзывов -->
                 <p class="review-header">
-                    <strong>{{ review.reviewer.username }}</strong> • {{ review.reviewer.review_count }} отзывов
+                    <strong>{{ review.reviewer.username }}</strong> • {{ review.reviewer.review_count }} {% trans 'отзывов' %}
                 </p>
                 
                 <!-- Дата и статус -->
                 <p class="review-date">
-                    {{ review.date }}{% if review.edited %}, отредактирован{% endif %}
+                    {{ review.date }}{% if review.edited %}, {% trans 'отредактрирован' %}{% endif %}
                 </p>
                 
                 <!-- Оценка звездами -->
@@ -44,25 +45,25 @@
 
                 <!-- Кнопки -->
                 <div class="review-actions">
-                    <button class="review-like">👍 Полезно {{ review.likes }}</button>
+                    <button class="review-like">👍 {% trans 'Полезно' %} {{ review.likes }}</button>
                 </div>
             </div>
         </div>
     {% empty %}
-        <p>Нет отзывов</p>
+        <p>{% trans 'Нет отзывов' %}</p>
     {% endfor %}
 </div>
 
 
     <!-- Форма для оставления отзыва -->
-    <h3>Оставить отзыв:</h3>
+    <h3>{% trans 'Оставить отзыв' %}:</h3>
     <form method="POST" class="review-form">
         {% csrf_token %}
         
-        <label for="id_comment">Комментарий:</label>
+        <label for="id_comment">{% trans 'Коментарий' %}:</label>
         <textarea id="id_comment" name="comment" class="form-control" rows="3"></textarea>
     
-        <label for="id_rating">Оценка:</label>
+        <label for="id_rating">{% trans 'Оценка' %}:</label>
         <select id="id_rating" name="rating" class="form-control">
             <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
             <option value="4">⭐️⭐️⭐️⭐️☆</option>
@@ -71,7 +72,7 @@
             <option value="1">⭐️☆☆☆☆</option>
         </select>
     
-        <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+        <button type="submit" class="btn btn-primary">{% trans 'Отправить отзыв' %}</button>
     </form>
     
 

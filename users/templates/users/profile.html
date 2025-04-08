@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %} 
 {% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'vendor/css/profile.css' %}">
@@ -11,20 +12,18 @@
         <div class="profile-info">
             <h2>{{ user.username }}</h2>
             <div class="stats">
-                <span><b>{{ user.works.count }}</b> Постов</span>
-                <span><b>{{ average_rating|floatformat:1 }}</b> Рейтинг</span>
-                <span><b>Роль</b> {{ user.role }}   </span>
+                <span><b>{{ user.works.count }}</b> {% trans 'Постов' %} </span>
+                <span><b>{{ average_rating|floatformat:1 }}</b> {% trans 'Рейтинг' %}</span>
+                <span><b>{% trans 'Роль' %}</b> {{ user.role }}   </span>
             </div>
             <p>{{ user.about }}</p>
             <div class="button-profile-flex">
                 {% if user == request.user %}
-                <a href="{% url 'users:setting' username=request.user.username %}" class="btn">Edit Profile</a>
+                <a href="{% url 'users:setting' username=request.user.username %}" class="btn">{% trans 'Редактировать профиль' %}</a>
             {% endif %}
-            <a href="{% url 'users:reviews' username=user.username %}" class="btn">Посмотреть отзывы</a>
+            <a href="{% url 'users:reviews' username=user.username %}" class="btn">{% trans 'Посмотреть отзывов' %}</a>
     {% if user == request.user %}
-    <a href="{% url 'users:add_work' username=request.user.username %}">Добавить работу</a>
-    {% endif %}
-
+    <a href="{% url 'users:add_work' username=request.user.username %}">{% trans 'Добавить работу' %}</a>
     <a href="{% url 'switch_theme' %}?next={{ request.path }}" class="theme-toggle-link {% if request.theme == 'dark' %}dark{% endif %}">
         <button class="theme__icon">
           <span></span>
@@ -37,6 +36,7 @@
           <span></span>
         </button>
       </a>
+    {% endif %}
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
                 {% endif %}
             </div>
         {% empty %}
-            <p>No posts yet</p>
+            <p>{% trans 'Постов ещё нет' %}</p>
         {% endfor %}
     </div>
 </div>

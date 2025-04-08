@@ -10,10 +10,10 @@
     <form method="post" class="comment-form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Сохранить</button>
+        <button type="submit">{% trans 'Сохранить' %}</button>
     </form>
     
-    <a   class="cancel-link" href="{% url 'request:client_request_detail' comment.client_request.id %}">Отмена</a>
+    <a   class="cancel-link" href="{% url 'request:client_request_detail' comment.client_request.id %}">{% trans 'Отмена' %}</a>
 
 
     <style>

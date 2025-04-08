@@ -1,39 +1,47 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% block title %}Shakhada — {% trans "Список запросов клиентов" %}{% endblock %}
 
+{% block meta %}
+<meta name="description" content="{% trans 'Просмотрите запросы от клиентов, ищущих специалистов для работы в области SMM, видеографии и таргетинга. Размещайте свои предложения и находите исполнителей.' %}">
+<meta name="keywords" content="запросы клиентов, поиск специалистов, работа SMM, видеограф, таргетинг, заказы на платформе, услуги для клиентов, фриланс, работа для специалистов">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://shakhada-45id.onrender.com/request/client-requests">
+{% endblock %}
 {% block content %}
     <div id="request-list-container">
-        <h2 id="request-list-title">Заявки от клиентов</h2>
-        <a id="create-request-btn" href="{% url 'request:create_client_request' %}">Создать заявку</a>
+        <h2 id="request-list-title">{% trans 'Заявки от клиентов' %}</h2>
+        <a id="create-request-btn" href="{% url 'request:create_client_request' %}">{% trans 'Создать заявку' %}</a>
 
         <form id="search-form" method="GET">
-            <input type="text" name="search" value="{{ search_query }}" placeholder="Поиск заявок...">
+            <input type="text" name="search" value="{{ search_query }}" placeholder="{% trans 'Поиск заявок...' %}">
             <button type="submit">🔍</button>
         </form>
 
         <form id="sort-form" method="GET">
-            <label for="sort_by">Сортировать по:</label>
+            <label for="sort_by">{% trans 'Сортировать по' %}:</label>
             <select name="sort_by" onchange="this.form.submit()">
-                <option value="newest">Новые</option>
-                <option value="oldest">Старые</option>
-                <option value="rating">Рейтинг автора</option>
+                <option value="newest">{% trans 'Новые' %}</option>
+                <option value="oldest">{% trans 'Старые' %}</option>
+                <option value="rating">{% trans 'Рейтинг автора' %}</option>
             </select>
         </form>
 
         {% for request_obj in requests %}
             <div class="request-item">
                 <h3><a href="{% url 'request:client_request_detail' request_obj.id %}">{{ request_obj.title }}</a></h3>
-                <p class="request-author">Автор: {{ request_obj.author.username }} (Рейтинг: {{ request_obj.get_author_rating }})</p>
-                <p class="request-description">Описание: {{ request_obj.description|truncatechars:70 }}</p>
+                <p class="request-author">{% trans 'Автор' %}: {{ request_obj.author.username }} (Рейтинг: {{ request_obj.get_author_rating }})</p>
+                <p class="request-description">{% trans 'Описание' %}: {{ request_obj.description|truncatechars:70 }}</p>
                 {% if request_obj.image %}
                     <img class="request-image" src="{{ request_obj.image.url }}" alt="Изображение заявки" width="200">
                 {% endif %}
                 <div class="favorite-buttons">
-                    <button class="favorite-add" data-id="{{ request_obj.id }}">Добавить в избранное</button>
-                    <button class="favorite-remove" data-id="{{ request_obj.id }}">Удалить из избранного</button>
+                    <button class="favorite-add" data-id="{{ request_obj.id }}">{% trans 'Добавить в избранное' %}</button>
+                    <button class="favorite-remove" data-id="{{ request_obj.id }}">{% trans 'Удалить из избранного' %}</button>
                 </div>
             </div>
         {% empty %}
-            <p>Заявок пока нет.</p>
+            <p>{% trans 'Заявок пока нет.' %}</p>
         {% endfor %}
     </div>
 

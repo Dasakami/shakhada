@@ -1,25 +1,66 @@
 {% load static %}
 {% load i18n %}
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block css %} 
+
+    {% block meta %}
+    <meta name="description" content="Профессиональные услуги SMM специалистов, видеографов и таргетологов. Закажите рекламу, создание контента, продвижение в социальных сетях.">
+    <meta name="keywords" content="SMM, видеограф, таргетинг, реклама, продвижение в соцсетях, контент, работа для видеографов, работа для SMM">
+    <meta name="author" content="Dan Dasakami">
     {% endblock %}
-    <title>{% block title %}  {% trans "Главная страница" %} {% endblock %}</title>
+
+    <link rel="alternate" hreflang="ru" href="https://shakhada-45id.onrender.com/ru/" />
+    <link rel="alternate" hreflang="en" href="https://shakhada-45id.onrender.com/en/" />
+
+    <title>{% block title %}{% trans "Главная страница" %}{% endblock %}</title>
+
+    <!-- SEO Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "shakhada",
+        "url": "https://shakhada-45id.onrender.com",
+        "description": "Платформа для специалистов в области SMM, видеографии и таргетинга. Публикуйте свои работы, заказывайте рекламу и находите клиентов.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Shakhada Team",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "{% static 'vendor/img/logo.png' %}"
+          }
+        },
+        "sameAs": [
+          "https://t.me/shakhada", 
+          "https://www.instagram.com/shakhada", 
+          "https://vk.com/shakhada"
+        ],
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://shakhada-45id.onrender.com/{{ LANGUAGE_CODE }}/request/request_list?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+      </script>
+      
+
     <!-- Require stylesheet load from local -->
-        <!-- <link href="./dist/css/bootstrap.min.css" rel="stylesheet"> -->
-            <!-- <link href="./dist/css/fontawesome-all.min.css" rel="stylesheet"> -->
-    <!-- Required stylesheets -->
     {% if request.theme == 'dark' %}
     <link rel="stylesheet" href="{% static 'vendor/css/bootstrapss-blacks.min.css' %}">
     <link href="{% static 'vendor/css/base-blac.css' %}" rel="stylesheet"/>
-{% else %}
-  <link rel="stylesheet" href="{% static 'vendor/css/bootstrap-white.min.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static 'vendor/css/bootstrap-white.min.css' %}">
     <link href="{% static 'vendor/css/base_whi.css' %}" rel="stylesheet"/>
-{% endif %}
+    {% endif %}
 
+    {% block css %}
+    <!-- Additional styles can be added here -->
+    {% endblock %}
 </head>
 <body>
     <!-- START: Body Content -->
@@ -168,6 +209,7 @@
             <select name="language">
                 <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>Русский</option>
                 <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                <option value="ky" {% if LANGUAGE_CODE == 'ky' %}selected{% endif %}>Кыргызча</option>
             </select>
             <button type="submit">{% trans "Сменить язык" %}</button>
         </form>

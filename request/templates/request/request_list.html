@@ -1,18 +1,26 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% block title %}Shakhada — {% trans "Список запросов" %}{% endblock %}
 
+{% block meta %}
+<meta name="description" content="{% trans 'Просмотрите список вакансий и запросов от специалистов в области SMM, видеографии и таргетинга на платформе Shakhada. Найдите работу или разместите вакансию.' %}">
+<meta name="keywords" content="список вакансий, запросы, работа SMM, видеограф, таргетинг, вакансии для специалистов, работа для фрилансеров, платформа для SMM">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://shakhada-45id.onrender.com/request/request_list">
+{% endblock %}
 {% block content %}
 
     <div class="header-category">
         <form method="GET" class="filter-form">
-            <label>Фильтр:</label>
+            <label>{% trans 'Фильтр' %}:</label>
             <select name="sort_by">
-                <option value="rating">По рейтингу (по умолчанию)</option>
-                <option value="newest">Сначала новые</option>
-                <option value="oldest">Сначала старые</option>
+                <option value="rating"> {% trans 'По рейтингу (по умолчанию)' %} </option>
+                <option value="newest">{% trans 'Сначала новые' %}</option>
+                <option value="oldest"> {% trans 'Сначала старые' %}</option>
             </select>
             <div class="button-request-list">
-                <button type="submit">Фильтровать</button>
-            <a href="{% url 'request:create_request' %}" id="create_request" >Создать</a>
+                <button type="submit"> {% trans 'Фильтровать' %}</button>
+                <a href="{% url 'request:create_request' %}" id="create_request" > {% trans 'Создать' %}</a>
             </div>
         </form>
     </div>
@@ -26,52 +34,51 @@
         {% endif %}
         <div class="request-header">{{ request.title }}</div>
         <p class="request-description">{{ request.description }}</p>
-        <button class="favorite-add" data-id="{{ request.id }}">Добавить в избранное</button>
-        <button class="favorite-remove" data-id="{{ request.id }}">Удалить из избранного</button>
-        <p class="request-author">Автор: {{ request.author.username }} (Рейтинг: {{ request.get_author_rating }})</p>
-        <a href="{% url 'request:request_detail' request.id %}" class="request-button">Откликнуться</a>
+        <button class="favorite-add" data-id="{{ request.id }}"> {% trans 'Добавить в избранное' %}</button>
+        <button class="favorite-remove" data-id="{{ request.id }}"> {% trans 'Удалить из избранного' %}</button>
+        <p class="request-author">{% trans 'Автор' %}: {{ request.author.username }} ({% trans 'Рейтинг' %}: {{ request.get_author_rating }})</p>
+        <a href="{% url 'request:request_detail' request.id %}" class="request-button"> {% trans 'Откликнуться' %}</a>
     </div>
-{% empty %}
-    <p>Нет заявок</p>
-{% endfor %}
+    {% empty %}
+        <p>{% trans 'Нет заявок' %}</p>
+    {% endfor %}
 
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll('.favorite-add').forEach(button => {
-            button.addEventListener('click', function() {
-                let requestId = this.dataset.id;
-                fetch(`/request/add_to_favorites/${requestId}/`, {
-                    method: 'GET',
-                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'added') {
-                        alert('Добавлено в избранное!');
-                    }
-                })
-                .catch(error => console.error('Ошибка:', error));
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.favorite-add').forEach(button => {
+                button.addEventListener('click', function() {
+                    let requestId = this.dataset.id;
+                    fetch(`/request/add_to_favorites/${requestId}/`, {
+                        method: 'GET',
+                        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'added') {
+                            alert('Добавлено в избранное!');
+                        }
+                    })
+                    .catch(error => console.error('Ошибка:', error));
+                });
+            });
+        
+            document.querySelectorAll('.favorite-remove').forEach(button => {
+                button.addEventListener('click', function() {
+                    let requestId = this.dataset.id;
+                    fetch(`/request/remove_from_favorites/${requestId}/`, {
+                        method: 'GET',
+                        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'removed') {
+                            alert('Удалено из избранного!');
+                        }
+                    })
+                    .catch(error => console.error('Ошибка:', error));
+                });
             });
         });
-    
-        document.querySelectorAll('.favorite-remove').forEach(button => {
-            button.addEventListener('click', function() {
-                let requestId = this.dataset.id;
-                fetch(`/request/remove_from_favorites/${requestId}/`, {
-                    method: 'GET',
-                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'removed') {
-                        alert('Удалено из избранного!');
-                    }
-                })
-                .catch(error => console.error('Ошибка:', error));
-            });
-        });
-    });
     </script>
     
 
@@ -83,31 +90,57 @@
             margin-bottom: 20px;
             position: relative;
         }
+
         .request-header {
             font-size: 18px;
             font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
+
         .request-description {
             color: #666;
             margin: 10px 0;
+            font-size: 14px;
         }
+
         .request-author {
             font-size: 14px;
             color: #333;
-        }
-        .request-button {
-            background: #007bff;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 6px;
-            text-decoration: none;
-            display: inline-block;
             margin-top: 10px;
         }
-        .request-button:hover {
-            background: #0056b3;
-            color: white;
-        }
+
+        .request-button {
+        padding: 10px 15px;
+        border-radius: 6px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+    }
+
+    .request-button:hover {
+        background-color: #0056b3; /* Смена фона */
+        transform: scale(1.05); /* Легкое увеличение */
+    }
+
+    .favorite-add, .favorite-remove {
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .favorite-add:hover, .favorite-remove:hover {
+        background-color: #ff9800; /* Смена фона при наведении */
+        color: white;
+        transform: scale(1.1); /* Легкое увеличение кнопок */
+    }
+
+
         .author-image {
             width: 40px;
             height: 40px;
@@ -117,47 +150,56 @@
             right: 20px;
             object-fit: cover;
         }
+
         .filter-form {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-    .filter-form label {
-        font-weight: bold;
-        color: #333;
-    }
-    .filter-form select {
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        background: white;
-        cursor: pointer;
-    }
-    .filter-form button, #create_request {
-        background: #007bff;
-        color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filter-form label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .filter-form select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .filter-form select:hover {
+            border-color: #007bff;
+        }
+
+        .filter-form button, #create_request {
         padding: 8px 15px;
-        border: none;
         border-radius: 6px;
         cursor: pointer;
-        transition: 0.3s;
-        text-decoration: none;
+        transition: all 0.3s ease-in-out;
     }
-    .filter-form button:hover{
-        background: #0056b3;
-    }
-    .header-category {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    @media (max-width: 768px) {
-        .filter-form {
-        flex-direction: column; /* Переход на вертикальную ориентацию */
-        align-items: stretch; /* Растягиваем элементы на всю ширину */
-    }
-    
-}
+
+    .filter-form button:hover, #create_request:hover {
+        background-color: #0056b3; /* Смена фона */
+        transform: scale(1.05); /* Легкое увеличение */
+    }   
+
+        .header-category {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .filter-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
     </style>
+
 {% endblock %}

@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% load static i18n %}
+{% block title %}Shakhada — {% trans "Часто задаваемые вопросы" %}{% endblock %}
 
+{% block meta %}
+<meta name="description" content="{% trans 'Ответы на часто задаваемые вопросы о платформе Shakhada. Здесь вы найдете информацию о том, как зарегистрироваться, какие услуги мы предоставляем и как начать работать.' %}">
+<meta name="keywords" content="FAQ, часто задаваемые вопросы, Shakhada, регистрация, платформа SMM, видеография, таргетинг, помощь">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://shakhada-45id.onrender.com/faq/">
+{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'vendor/css/faq.css' %}">
 {% endblock %}

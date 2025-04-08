@@ -1,28 +1,38 @@
 {% extends 'base.html' %}
+{% load i18n %}
+{% block title %}Shakhada — {% trans "Избранное" %}{% endblock %}
 
+{% block meta %}
+<meta name="description" content="{% trans 'Посмотрите ваши сохраненные запросы, вакансии или другие элементы на платформе Shakhada. Управляйте вашими избранными элементами для быстрого доступа.' %}">
+<meta name="keywords" content="избранное, сохраненные запросы, сохраненные вакансии, избранные элементы, работа на платформе, SMM, видеограф, таргетинг">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://shakhada-45id.onrender.com/request/favorites/">
+{% endblock %}
 {% block content %}
-<h2>Избранные заявки</h2>
+<h2>{% trans 'Избранные заявки' %}</h2>
 
 {% for fav in favorites %}
     <div class="request-card">
         <h3>{{ fav.request.title }}</h3>
         <p>{{ fav.request.description }}</p>
-        <a href="{% url 'request:request_detail' fav.request.id %}">Подробнее</a>
+        <a href="{% url 'request:request_detail' fav.request.id %}">{% trans 'Подробнее' %}</a>
     </div>
 {% empty %}
-    <p>Нет избранных заявок</p>
+    <p>{% trans 'Нет избранных заявок' %}</p>
 {% endfor %}
 
-<h2>Избранные клиентские заявки</h2>
+<h2>
+    {% trans 'Избранные клиентские заявки' %}
+</h2>
 
 {% for fav in client_favorites %}
     <div class="request-card">
         <h3>{{ fav.client_request.title }}</h3>
         <p>{{ fav.client_request.description }}</p>
-        <a href="{% url 'request:client_request_detail' fav.client_request.id %}">Подробнее</a>
+        <a href="{% url 'request:client_request_detail' fav.client_request.id %}">{% trans 'Подробнее' %}</a>
     </div>
 {% empty %}
-    <p>Нет избранных клиентских заявок</p>
+    <p>{% trans 'Нет избранных заявок' %}</p>
 {% endfor %}
 
 <style>

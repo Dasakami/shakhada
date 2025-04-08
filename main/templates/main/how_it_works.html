@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% block title %}Shakhada — {% trans "Как это работает" %}{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{% trans 'Узнайте, как работает платформа Shakhada, как зарегистрироваться, опубликовать свои работы и найти клиентов для SMM, видеографии и таргетинга.' %}">
+<meta name="keywords" content="как это работает, Shakhada, регистрация, опубликовать работы, найти клиентов, SMM, видеография, таргетинг, платформа для специалистов">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://shakhada-45id.onrender.com/how_its_work/">
+{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'vendor/css/how_it_work.css' %}">
 {% endblock %}

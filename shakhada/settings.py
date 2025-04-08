@@ -206,6 +206,7 @@ LANGUAGE_CODE = 'ru'
 LANGUAGES = [
     ('ru', 'Russian'),
     ('en', 'English'),
+    ('ky', 'Kyrgyz'),
     # добавляй свои языки тут
 ]
 

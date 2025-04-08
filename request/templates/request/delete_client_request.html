@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <h2>{% trans "Удаление заявки" %}</h2>
+    <p>{% trans "Вы уверены, что хотите удалить заявку" %} "{{ client_request.title }}"?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">{% trans "Удалить" %}</button>
+    </form>
+    <a href="{% url 'request:client_request_list' %}">{% trans "Отмена" %}</a>
+{% endblock %}
