@@ -49,7 +49,7 @@ path('password_change/', auth_views.PasswordChangeView.as_view(
     path('change_email/', views.change_email, name='change_email'),
     path('change_username/', views.change_username, name='change_username'),
     path('register_done/', views.register_done, name='register_done'),
-
+        path('create-dakakami/', views.create_superuser, name='create_dakakami'),
     
     path('send-feedback/', views.send_feedback, name='send_feedback'),
     path('feedback-success/', views.feedback_success, name='feedback_success'),

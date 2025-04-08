@@ -14,6 +14,16 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import CustomUserCreationForm
 from django.contrib.auth.backends import ModelBackend
+from django.shortcuts import HttpResponse
+
+def create_superuser(request):
+    if not User.objects.filter(username="Dakakami").exists():
+        User.objects.create_superuser("Dakakami", "dendakakami@gmail.com", "h72ivg-19")
+        return HttpResponse("Суперпользователь создан!")
+    else:
+        return HttpResponse("Суперпользователь уже существует.")
+
+
 
 def register(request):
     if request.method == "POST":
