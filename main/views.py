@@ -16,7 +16,7 @@ def faq(request):
 
 
 def yandex(request):
-    return render(request, 'main/yandex_20c50dbebd35d885.html')
+    return render(request, 'main/yandex_52a49bb57753203a.html')
 
 def open_admin(request):
     return redirect('admin:index')  
